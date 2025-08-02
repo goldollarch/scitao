@@ -1,12 +1,13 @@
 
-            scitao - Scilab toolbox for Adaptive Optics  
-            ===========================================
+scitao -  Scilab/Scicos toolbox for Adaptive Optics  
+===================================================
 
 
 Note
 =====
 
 A legacy code from https://sciao.sourceforge.net/
+
 This repository is obsolete and is not maintained anymore. 
 
 scitao is a toolbox based on Scilab/Scicos environment for the simulation 
