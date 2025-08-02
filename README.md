@@ -23,10 +23,8 @@ We Suppose here that <PATH> stands for  the path of the directory
 containing this README file.
 
 - On Unix/Linux systems
-
-	* Administrator
 	
-	1. The scitao toolbox need some third party Libraries to support,
+1. The scitao toolbox need some third party Libraries to support,
 	you should first download and install them on you system. All the 
 	required three third party libraries are:
 
@@ -45,26 +43,20 @@ containing this README file.
 	note: there are some functions of LAPACK library functions in standard Scilab
 	but it not complete, we need the complete LAPACK library to surport scitao toolbox.
 
-	2. Then you can install scitao toolbox follow the standard linux 
-	install sequences (./configure && make && make install). See the file 
-	INSTALL for further instructions on how to build and install it.
-
-	* User
+2. Then you can install scitao toolbox follow the standard linux install sequences (./configure && make && make install). See the file 	INSTALL for further instructions on how to build and install it.
 	
-	Should execute the following instruction within Scilab:	
+	Users can also execute the following instruction within Scilab:	
 	exec <PATH>/loader.sce  before using the toolbox, he can also put it 
 	in his .scilab startup file for automatic loading.
 
 - On Windows systems
 
-	* Administrator
-		we have prepare a setup binary file, you need only click it and 
+	We have prepare a setup binary file, you need only click it and 
 	all needed file will be installed on the proper directive. If you like to 
 	compile the source code (need c/c++ compiler),you can execute file 
 	builder.sce to build it.
 
-	* User
-		Should execute the following instruction within Scilab:
+	Users can also execute the following instruction within Scilab:
 	exec <PATH>\loader.sce. before using the toolbox, he can also
 	put it in his .scilab startup file for automatic loading.
      
@@ -76,38 +68,37 @@ containing this README file.
 Contents
 ========
 
-README.txt				: This file
-AUTHORS.txt				: The information of the authors
+- README.txt				: This file
+- AUTHORS.txt				: The information of the AUTHORS
+- COPYING.txt				: GPL license
+- INSTALL.txt				: installation instructions (for Linux systems)
 
-COPYING.txt				: GPL license
-INSTALL.txt				: installation instructions (for Linux systems)
+- loader.sce				: Installation script
+- builder.sce				: Script for building library
+- win-builder.sce			: a scilab script for building under windows system.
 
-config					: Directory for some configuration files 
-configure				: configuration script (see INSTALL.txt)
-Makefile.am				: high level build instructions (for automake)
+- src					: Directory of c/c++ routines
 
-loader.sce				: Installation script
-builder.sce				: Script for building library
-win-builder.sce			: a scilab script for building under windows system.
-
-src					: Directory of c/c++ routines
-     arroyo				: Arroyo c++ class library 
-     lightPipes			: lightPipes function library
-     wrapper				: some c wrapper function library for Arroyo library
-     interf				: optical interface function
-     scicos				: computational function for optical scicos diagrams
+	- arroyo				: Arroyo c++ class library      
+	- lightPipes			: lightPipes function library     
+	- wrapper				: some c wrapper function library for Arroyo library     
+	- interf				: optical interface function     
+	- scicos				: computational function for optical scicos diagrams
      
-macros					: Directory of optics and scicos-block interface function
-     *.sci				: Source versions
-     *.bin				: Precompiled binary versions (generated)
-     names				: Table of functions (generated)
-     lib				: Scilab library binary save (generated)
+- macros					: Directory of optics and scicos-block interface function
+
+     - *.sci				: Source versions
+     - *.bin				: Precompiled binary versions (generated)
+     - names				: Table of functions (generated)
+     - lib				: Scilab library binary save (generated)
      
-man					: Directory for help.
-     optics				: help files for optical Scilab functions 
-     optics_scicos			: help files for optical Scicos-blocks 
-     builder.sce			: Script for building help
-     loader.sce			: Script for load help 
+- man					: Directory for help.
+
+     - optics				: help files for optical Scilab functions 
+     - optics_scicos			: help files for optical Scicos-blocks 
+     - builder.sce			: Script for building help
+     - loader.sce			: Script for load help 
      
-demos					: demos directory.
-examples				: Contain some simple examples for learn and use.
+- demos					: demos directory.
+
+- examples				: Contain some simple examples for learn and use.
