@@ -1,6 +1,6 @@
 
-scitao -  Scilab/Scicos toolbox for Adaptive Optics  
-===================================================
+Scilab/Scicos Toolbox for Adaptive Optics  
+===========================================
 
 
 Note
