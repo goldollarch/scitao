@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> pip_fft  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="pip_fft"> perform the Fourier transform of the whole field </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=pip_fft( field_in, ind )  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ind  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the identifer to transform direction.(1 for forward, or -1 for inverse) </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+	Note, we still can apply all the intensity and phase filters in the Fourier-space. 
+	The whole grid size in the angular frequency domain corresponds to 2*pi*lamda/2x where dx  is the 
+	grid step. One step in the frequency domain corresponds to  where x is the total 
+	size of the grid. <VERB>SAO</VERB> filters do not know about all these transformations, 
+	so the user should take care about setting the proper size (using the relations 
+	mentioned) of the filter (still in linear units) in the frequency domain. 
+  </P>
+  <P>
+	In many cases, the frequency spectrum occupies only few sampling intervals. 
+	In this case filtering mask has to be defined only on a few grid points, 
+	making precision definition of the mask impossible (too few points). 
+	In this case, interpolation into a grid with maximum possible dimensionality 
+	is advised, to define the filter mask with a higher precision. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.01,1e-6,200);
+	f2=circ_ap(f1,0.003);
+	f3=random(f2,"pha",3);
+	f4=fresnel(f3,1);
+	field_plot(f4);	
+	
+	f5=pip_fft(f4,1);
+	f6=circ_ap(f5,0.0005);
+	f7=pip_fft(f6,-1);
+	field_plot(f7);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+		<SEE_ALSO_ITEM>	<LINK PATH="./">random</LINK> </SEE_ALSO_ITEM>
+		<SEE_ALSO_ITEM><LINK PATH="../optics_scicos/">fft</LINK></SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> hardy_wind  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="hardy_wind"> construct a Hardy wind model.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[hwind]=hardy_wind(ground_vel[,tropopause_vel[,trop_hgh[,trop_thk]]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>ground_vel  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the wind velocity in ground layer. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>tropopause_vel  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the tropopause wind velocity. ( 0 if defaulted) </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>trop_hgh  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the tropopause height. (default 0.0)  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>trop_thk  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the tropopause thickness. (default 0.0)  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>hwind  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output Hardy wind model</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct a Hardy wind model. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	hwm=hardy_wind(10,100,10000,5000);
+	hghts=[1,10,100,1000,10000];
+	wvs=get_hardy_wind_vectors(hwm,5,hghts);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">get_hardy_wind_vectors</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_model</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

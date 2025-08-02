@@ -1,0 +1,13 @@
+
+Copyright (c) 2005-2006 IAPCM, Beijing, China.
+
+The toolbox was mainly written by: 
+	Chen jingyuan (IAPCM,Beijing,China)
+
+other contribitors:
+	Gang guangyong (IAPCM,Beijing,China)
+	Tao yingxue (IAPCM,Beijing,China)
+	Zhang jianzhu (IAPCM,Beijing,China)
+	
+To report bugs or remarks, please contact:
+	jingyuan_chen@yahoo.com.cn

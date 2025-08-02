@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> get_hardy_wind_vectors  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="get_hardy_wind_vectors"> get the wind vectors of Hardy model. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[tvs]=get_hardy_wind_vectors(hwm,nlayers,hghts[,tf])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>hwm  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the Hardy wind model.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>nlayers  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the number of layers. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>hghts </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the heights array corresponding to all the layers. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>tf  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the frame. it is the global frame if defaulted</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>tvs  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output hardy wind vectors array (corresponding to each lay). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    get the wind vectors of Hardy model. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	hwm=hardy_wind(10,100,10000,5000);
+	hghts=[1,10,100,1000,10000];
+	wvs=get_hardy_wind_vectors(hwm,5,hghts);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">hardy_wind</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_model</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

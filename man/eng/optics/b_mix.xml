@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> b_mix  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="b_mix"> mixes two coherent wave fields into one wave field.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=b_mix(field_in_1,field_in_2)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in_1 </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:the first input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in_2 </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:the second input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    The input fields must be the same as dimensions, sizes, 
+    wavelengths and the coordinate systems.If not the same dimensions,
+    you can use comammd <VERB>interpol</VERB> resize the field, 
+    then mix the two coherent fields.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	m=1;nm=1e-9*m;mm=1e-3*m;cm=1e-2*m;
+	lambda=550*nm;sizes=5*mm;N=100;
+	R=0.12*mm;d=0.5*mm;z=100*cm;
+	F=begin(sizes,lambda,N,N);
+	F1=circ_ap(F,R,d,0);
+	F2=circ_ap(F,R,-d,0);
+	F=b_mix(F1,F2);
+	out=forvard(F,z);
+	field_plot(out);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM><LINK PATH="./">b_split</LINK></SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="../optics_scicos/">mixer</LINK></SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

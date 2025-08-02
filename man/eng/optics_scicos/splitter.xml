@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="splitter"> A block to model a beam splitter.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>splitter</ModuleName>
+	
+	<ModuleIcon>split.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block split one beam into two beams.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set module parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>split coeficient</ItemTitle>
+				<ItemContent>0.5</ItemContent>
+			</Item>
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>split coeficient : </Subject>
+				<Content>split coeficient.</Content>
+			</Explain>
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>split_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/SPLITTER.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/splitter.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">b_split</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">mixer</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">clone</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> random  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="random"> filters the field through a random mask.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=random( field_in,job,ampl[,seed])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>job  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: character constant with valid values 'int' and 'pha'.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ampl  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the coefficient of amplification. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>seed  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the seed number (unsigned integer).default seed = 0 </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    random is a random filter with a uniform distribution. It uses standard 
+    C function rand (many consider it as a bad one, but it exists everywhere). 
+    By default random takes the random seed from the system clock, 
+    but if the result should be repeated with the same seed, the random seed 
+    (unsigned int) may be supplied as the third command line argument. 
+    The first argument may be int for the intensity or pha for the phase, 
+    the second gives the amplitude of the random phase screen 
+    (uniform distribution) in radians, or the amplitude of the intensity noise 
+    (uniformly distributed additive) normalized to the maximum intensity. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.01,1e-6,64);
+	f2=random(f1,"int",1,1);
+	f3=random(f2,"pha",2,1);
+	field_plot(f3);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">gauss</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

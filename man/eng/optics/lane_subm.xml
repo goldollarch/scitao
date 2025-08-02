@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> lane_subm  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="lane_subm"> construct the Lane subharmonic method.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[subm]=lane_subm(subharmonic_depth)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>subharmonic_depth  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the subharmonic depth (integer).</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>subm  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:the output subharmonic methed;  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct a Lane subharmonic method. it is described 
+    by Lane et al. 1992, waves in random media   
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	subm=lane_subm(3);
+ ]]></EXAMPLE>
+  <AUTHOR> Chen jingyuan, IAPCM, China. </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">null_subm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">general_subm</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">johansson_gavel_subm</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">quad_pix_subm</LINK> </SEE_ALSO_ITEM> 
+  </SEE_ALSO>
+</MAN>

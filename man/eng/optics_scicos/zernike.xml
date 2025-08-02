@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="zernike"> A block to model Zernike filter.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>zernike</ModuleName>
+	
+	<ModuleIcon>znike.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block introduces arbitrary Zernike aberration into the field distribution.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set the Zernike polynomials parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the radial order n</ItemTitle>
+				<ItemContent>2</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the azimuthal order m</ItemTitle>
+				<ItemContent>2</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>the radius R</ItemTitle>
+				<ItemContent>0.005</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>the amplitude of aberration in R</ItemTitle>
+				<ItemContent>10</ItemContent>
+			</Item>			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>the radial order n : </Subject>
+				<Content></Content>
+			</Explain>
+			<Explain>
+				<Subject>the azimuthal order m : </Subject>
+				<Content></Content>
+			</Explain>			
+			<Explain>
+				<Subject>the radius R : </Subject>
+				<Content></Content>
+			</Explain>			
+			<Explain>
+				<Subject>the amplitude of aberration in R : </Subject>
+				<Content></Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>			
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>znk_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/ZERNIKE.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/zernike.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">zernike</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">znk_mod</LINK>
+       </SEE_ALSO_ITEM>       
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">gauss</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">lens</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

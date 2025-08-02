@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> interpol  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="interpol"> interpolate (12-point 2-D cubic) the field into new size and dimension. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=interpol(field_in,size_new[,new_number[,x_shift[,y_shift[,angle[,magnif]]]]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>size_new  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the new size after transformt.if size_new=0,
+          then the size of the field will not changed.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>new_number  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: input the new number after transformt(integer). default is 0,
+          if new_number=0, then the size of the field will not changed.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>x_shift  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the shifts of the X direction in metre. ( default is 0.)</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>y_shift  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the shifts of the Y direction in metre. ( default is 0.)</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>angle  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the rotated angle in degree.( default is 0. )  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>magnif </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the coefficient of magnification ( default is 1.). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    <VERB>Interpol</VERB> is the tool to manipulate the size and the dimension of the grid and 
+    to change the shift, rotation and the scale of the field distribution. besides the input field 
+    It accepts six command line arguments, the first is the new size of the grid, 
+    the second and others are optional. The second argument gives the new sampling, 
+    the third and fourth determine shifts in X and Y directions,the fifth gives the 
+    field rotation (after shifting).  The last argument defines the magnification, 
+    its action is equivalent to passing the beam through a focal system with magnification M 
+    (without diffraction, but preserving the integral intensity). 
+  </P>
+  <P>
+    For example if the field was propagated with FFT algorithm forvard, then the grid 
+    contains empty borders which are not necessary for further processing. 
+    Other way around, after forward we have to add some empty borders to continue with forvard. 
+    Interpol is useful for interpolating into grids with different size and samplings. 
+    Of course, it is not wise to interpolate a grid of 512x512 points into a grid of 4x4,
+    and then back to 512x512, because all information about the initial field will be lost. 
+    The same is true for interpolating a distribution defined in the square of 1x1m to 
+    1x1mm and back. When interpolating into a grid with larger size, for example 
+    from 1x1 to 2x2, the program puts zeros into added regions.  
+  </P>
+  <P>
+	Examples of transformations (we suppose the input field is f):
+  </P>
+  <P>
+	<VERB>interpol</VERB>(f,1) - interpolate to a new grid with size 1
+  </P>
+  <P>
+	<VERB>interpol</VERB>(f,1,128) - interpolate to a new grid with size 1 and number of points 128
+  </P>
+  <P>
+	<VERB>interpol</VERB>(f,0) - don't change anything
+  </P>
+  <P>
+	<VERB>interpol</VERB>(f,1,128,0.2) - interpolate to a new grid with size 1 and 
+	number of points 128, then shift in X direction by 0.2
+  </P>
+  <P>
+	<VERB>interpol</VERB>(f,1,128,0.2,0.3) - interpolate to a new grid with size 1 
+	and number of points 128, then shift in X direction by 0.2 and in Y direction by 0.3
+  </P>
+  <P>
+	<VERB>interpol</VERB>(f,1,128,0.2,0.3,23) - interpolate to a new grid with size 1 
+	and number of points 128, then and shift in X direction by 0.2 and in Y direction by 0.3, then rotate by  .
+  </P>
+  <P>
+	<VERB>interpol</VERB>(f,0,0,128,0.2,0.3,23,1.3) - interpolate into a new grid with size 
+	and sampling both inherited from the previous filter, shift in X direction by 0.2 
+	and in Y direction by 0.3, then rotate  and then magnify the field with a ratio of 1.3
+  </P>
+  <P>
+	<VERB>interpol</VERB>(f,0,0,0.,0.,0.,1.3) - inherit size and sampling, 
+	magnify (afocal) the field with a ratio of 1.3   
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.01,1e-6);
+	f2=rect_ap(f1,0.005);
+	f3=forvard(f2,0.2);
+	file_ps(f3,"int1");
+	f4=interpol(f3,0.0075,64);
+	field_plot(f4);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lp_interp</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">interpolate</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

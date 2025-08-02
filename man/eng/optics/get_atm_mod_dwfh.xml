@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> get_atm_mod_dwfh  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="get_atm_mod_dwfh"> construct a wavefront header from refractive atmospheric model .  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[dwfhs]=get_atm_mod_dwfh(ram, wavelength, pixscale, emt , ap , layer_foreshortening, pplan_type )  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>ram  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:the input refractive atmospheric model. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>wavelength  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the wavelength in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pixscale  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the pixel scale in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>emt  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the wave emitter. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+   <PARAM_ITEM>
+  <PARAM_NAME>ap </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the aperture. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>layer_foreshortening  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: whether layer foreshortening (boolean). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pplan_type  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the propagation method (1:diffractive; other: geometric). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwfh  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output diffractive wavefront header. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct a wavefront header from refractive atmospheric model . 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	ap=circle(2);
+	emt=emitter(0,0,0,-1);
+	wvl=1e-6;pixscale=0.01;
+	ram=tmt_srd_v13_cn2_mod();
+	dwfh=get_atm_mod_dwfh(ram,wvl,pixscale,emt,ap,0,1);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ell_cer_pac_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ell_mau_kea_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">pal_dimm_mass_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">huf_val_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">slcsat_day_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">slcsat_night_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">tmt_srd_v13_cn2_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">gemini_glao_study_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_model</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">get_atm_mod_layers</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_layers_fits</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lay_number</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lay_heights</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lays_transform</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">atmosphere</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

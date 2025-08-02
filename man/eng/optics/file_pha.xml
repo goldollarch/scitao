@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> file_pha  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="file_pha"> writes phase of the field  into a txt file.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=file_pha(field_in,fnam[,time[,imax[,gnuplot]]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>fnam </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output filename, it must be a string. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>time  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the timestamp of the outfile name. default time = -1. If the value of time is not positive,then the timestamp of the outfile will not be included.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>imax  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:
+          the grid dimension or sampling dimension (must be integer), default imax=64.
+          it equals to grid sampling if you pass the zero to imax
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>gnuplot  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: 
+          the indication whether the output file will be processed by gnuplot or 
+          fil_ter (it must be bool variant),default gnuplot = fause. 
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+	<VERB>file_pha</VERB> is similar to <VERB>file_int</VERB>, it writes wrapped phase distribution
+	into a txt file which may be processed or plotted with Scilab graphical functions.
+    One argument is necessary: the output filename. Default grid size is 64x64, 
+    you may change the default dimension with the imax argument. 
+    Files saved with <VERB>file_pha</VERB> and <VERB>file_int</VERB> (set the gnuplot paramter to 1) 
+    can also be imported with <VERB>fil_ter</VERB>, which automatically recognizes pgm and
+    gnuplot formats.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	F1=begin(0.01,1e-6);
+	F2=gauss(F1,0.004);
+	
+	file_pha(F2,"file1");	
+	file_pha(F2,"file2",1);	
+	file_pha(F2,"file3",-1,0);	
+	file_pha(F2,"file4",-1,128);	
+	file_pha(F2,"file5",-1,128,1);	
+	
+	int = fscanfMat('file1.txt');
+	surf(int);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM><LINK PATH="./">dwf_fits</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">file_ps</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">file_int</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">file_pgm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">cros_out</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

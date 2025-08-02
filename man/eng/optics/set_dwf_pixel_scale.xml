@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="E:\scitao-0.2\scitao-0.2\man\html-rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> set_dwf_pixel_scale  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="set_dwf_pixel_scale"> reset the pixel scale of a wavefront.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[dwf_out]=set_dwf_pixel_scale(dwf_in,pxlscl)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwf_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field.it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pxlscl  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the pixel scale to set </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwf_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+	reset the pixel scale of a wavefront.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	F1=begin(1,1e-6,100);
+	F2=circ_ap(F1,0.5);
+	dwf_fits(F2,"f2");
+	F3=set_dwf_pixel_scale(F2,2/100);	
+	dwf_fits(F3,"f3");
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">begin</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">pl_wave</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">sp_wave</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_dwf_frame</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_dwf_direction</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_dwf_timestamp</LINK> </SEE_ALSO_ITEM>    
+  </SEE_ALSO>
+</MAN>

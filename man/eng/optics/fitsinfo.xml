@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> fitsinfo  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="fitsinfo"> Return information about a FITS file. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>S = fitsinfo(filename)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>filename  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: a string that specifies the name of the FITS file.  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>S  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: returns a list whose fields contain information about the contents of a Flexible Image Transport System (FITS) file.  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    The tlist S contains the following fields. Information Returned from a Basic FITS File 
+  </P> 
+	<TABLE>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Field Name</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Description</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Return Type</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Contents</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>List of extensions in the file in the order that they occur</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Strings matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FileModDate</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>File modification date</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Filename</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Name of the file</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FileSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Size of the file in bytes</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>PrimaryData</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Information about the primary data in the FITS file</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Lists</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>		
+	</TABLE>     
+  <P>
+		A FITS file can also include any number of optional components, called extensions, in FITS terminology. To provide information about these extensions, the structure S can also include one or more of the following structure arrays. 
+		
+		Additional Information Returned from FITS Extensions 
+  </P>
+	<TABLE>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Field Name</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Description</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Return Type</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>AsciiTable</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>ASCII Table extensions</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>tlist</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>BinaryTable</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Binary Table extensions</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>tlist</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Image</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Image extensions</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>tlist</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Unknown</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Nonstandard extensions</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>tlist</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+	</TABLE>    
+  <P>
+		Fields of the PrimaryData tlist. 
+  </P>
+	<TABLE>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Field Name</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Description</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Return Type</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>DataSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Size of the primary data in bytes</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>DataType</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Precision of the data</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Intercept</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Value, used with Slope, to calculate actual pixel values from the array pixel values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Keywords</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Keywords, values, and comments of the header in each column</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Strings matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>MissingDataValue</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Value used to represent undefined data</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Offset</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of bytes from beginning of the file to the first data value</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Size</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Sizes of each dimension</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double array</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Slope</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Value, used with Intercept, to calculate actual pixel values from the array pixel values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>					
+	</TABLE>   
+		
+  <P>
+		Fields of the AsciiTable tlist. 
+  </P>
+	<TABLE>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Field Name</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Description</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Return Type</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>DataSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Size of the ASCII Table in bytes</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FieldFormat</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Formats in which each field is encoded, using FORTRAN-77 format codes</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FieldPos</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Starting column for each field</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FieldPrecision</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Precision in which the values in each field are stored</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Strings matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FieldWidth</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of characters in each field</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Intercept</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Values, used with Slope, to calculate actual data values from the array data values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Keywords</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Keywords, values, and comments in the ASCII table header</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>MissingDataValue</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Representation of undefined data in each field</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>NFields</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of fields in each row</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>		
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Offset</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of bytes from beginning of the file to the first data value</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Rows</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of rows in the table</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>RowSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of characters in each row</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Slope</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Values, used with Intercept, to calculate actual data values from the array data values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>					
+	</TABLE>   
+		
+  <P>
+		Fields of the BinaryTable tlist. 
+  </P>
+	<TABLE>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Field Name</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Description</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Return Type</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>DataSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Size of the data in the Binary Table, in bytes. Includes any data past the main part of the Binary Table.</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>ExtensionOffset</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of bytes from the beginning of the file to any data past the main part of the Binary Table</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>ExtensionSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Size of any data past the main part of the Binary Table, in bytes</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FieldFormat</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Data type for each field, using FITS binary table format codes</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Strings matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>		
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FieldPrecision</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Precision in which the values in each field are stored</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Strings matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>FieldSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of values in each field</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>			
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Intercept</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Values, used with Slope, to calculate actual data values from the array data values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Keywords</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Keywords, values, and comments in the Binary Table header</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>MissingDataValue</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Representation of undefined data in each field</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>NFields</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of fields in each row</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>		
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Offset</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of bytes from beginning of the file to the first data value</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Rows</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of rows in the table</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>RowSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of characters in each row</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>		
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Slope</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Values, used with Intercept, to calculate actual data values from the array data values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>												
+	</TABLE>   
+		
+  <P>
+		Fields of the Image tlist. 
+  </P>
+	<TABLE>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Field Name</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Description</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Return Type</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>DataSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Size of the data in the Image extension in bytes</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>DataType</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Precision of the data</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Intercept</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Values, used with Slope, to calculate actual data values from the array data values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Keywords</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Keywords, values, and comments in the the Image header</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>MissingDataValue</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Representation of undefined data in each field</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Offset</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of bytes from beginning of the file to the first data value</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Size</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Sizes of each dimension</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>		
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Slope</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Values, used with Intercept, to calculate actual data values from the array data values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>												
+	</TABLE>   
+
+  <P>
+		Fields of the Unknown tlist. 
+  </P>
+	<TABLE>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Field Name</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Description</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Return Type</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>DataSize</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Size of the data in the nonstandard extensions in bytes</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>DataType</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Precision of the data</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Intercept</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Values, used with Slope, to calculate actual data values from the array data values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Keywords</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Keywords, values, and comments in the the extension header</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>String matrix</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>MissingDataValue</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Representation of undefined data </TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Offset</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Number of bytes from beginning of the file to the first data value</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>	
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Size</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Sizes of each dimension</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>		
+		<TABLE_NEW_ROW>
+			<TABLE_NEW_COLUMN>Slope</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Values, used with Intercept, to calculate actual data values from the array data values</TABLE_NEW_COLUMN>
+			<TABLE_NEW_COLUMN>Double</TABLE_NEW_COLUMN>
+		</TABLE_NEW_ROW>												
+	</TABLE>    
+				
+  </DESCRIPTION>
+
+  <EXAMPLE><![CDATA[
+	// Use fitsinfo to obtain information about FITS file deform_mirror.fits. 
+	// In addition to its primary data, the file also contains three extensions: 
+	// Binary Table, Image, and ASCII Table.
+
+	S = fitsinfo('test.fits')
+	S  =
+		Filename: "test.fits"
+		FileModDate: [2001,3,14,12,48]
+		FileSize: 109440
+		Contents: "Primary  Binary Table  Unknown  Image  ASCII Table  "
+		PrimaryData: [9 pri]
+		AsciiTable: [14 asc]
+		BinaryTable: [1 list]
+		Image: [1 list]
+		Unknown: [1 list]
+	   
+	// The PrimaryData substructure shows that the data resides in a 102-by-109 matrix 
+	// of single-precision values. There are 44472 bytes of primary data starting at 
+	// an offset of 2,880 bytes from the start of the file.
+
+	S.PrimaryData.DataType
+	ans  =
+		single   
+	S.PrimaryData.Size
+	ans  =
+		102.
+		109.
+	S.PrimaryData.DataSize
+	ans  =
+		44472.
+ 
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK>fits_structure</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK>fitsread</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK>fits_head</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK>fits_image_info</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK>get_fits_image</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">file_fits</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

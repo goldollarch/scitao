@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+	<LANGUAGE>eng</LANGUAGE>
+	<TITLE> absorber  </TITLE>
+	<TYPE>Scilab Function  </TYPE>
+	<DATE> May, 2006 </DATE>
+	<SHORT_DESCRIPTION name="absorber"> filter the field through intensity attenuator R . </SHORT_DESCRIPTION>
+	<CALLING_SEQUENCE>
+		<CALLING_SEQUENCE_ITEM>[FIELD_out]=absorber(FIELD_in,R)  </CALLING_SEQUENCE_ITEM>
+	</CALLING_SEQUENCE>
+	<PARAM>
+		<PARAM_INDENT>
+			<PARAM_ITEM>
+				<PARAM_NAME>FIELD_in  </PARAM_NAME>
+				<PARAM_DESCRIPTION>
+					<SP>: input field.it must be diffractive wavefront.</SP>
+				</PARAM_DESCRIPTION>
+			</PARAM_ITEM>
+			<PARAM_ITEM>
+				<PARAM_NAME>R  </PARAM_NAME>
+				<PARAM_DESCRIPTION>
+					<SP>: the coefficient of attenuation or amplification ( must be positive). </SP>
+				</PARAM_DESCRIPTION>
+			</PARAM_ITEM>
+			<PARAM_ITEM>
+				<PARAM_NAME>FIELD_out  </PARAM_NAME>
+				<PARAM_DESCRIPTION>
+					<SP>: the output field or diffractive wavefront </SP>
+				</PARAM_DESCRIPTION>
+			</PARAM_ITEM>
+		</PARAM_INDENT>
+	</PARAM>
+	<DESCRIPTION>
+		<P>
+			compute the  field through intensity attenuator with the coefficient 
+			of attenuation (R greater than 1) or amplification (R smaller than 1)
+		</P>
+	</DESCRIPTION>
+	<EXAMPLE><![CDATA[
+	m=1;
+	nm=1e-9*m;
+	mm=1e-3*m;
+
+	lambda=550*nm;
+	sizes=5*mm;
+	R=0.005;
+
+	in=begin(sizes,lambda);
+	out=absorber(in,R); 
+]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+	<SEE_ALSO>
+		<SEE_ALSO_ITEM>	<LINK PATH="./">l_amplify</LINK> </SEE_ALSO_ITEM>
+		<SEE_ALSO_ITEM>	<LINK PATH="./">b_split</LINK> </SEE_ALSO_ITEM>
+		<SEE_ALSO_ITEM><LINK PATH="../optics_scicos/">absorber</LINK></SEE_ALSO_ITEM>
+	</SEE_ALSO>
+</MAN>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> tmt_srd_v13_cn2_mod  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="tmt_srd_v13_cn2_mod"> construct a TMT-SRD-v13-Cn2 refractive atmospheric model. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[ram]=tmt_srd_v13_cn2_mod([tf])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>tf  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the 3D frame.it is the global frame if defaulted </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ram  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:the output refractive atmospheric model. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct TMT SRD v13 Cn2 refractive atmospheric model. It implement the 
+    refractive atmospheric model proposed by the Science Advisory Committe for 
+    the Thirty Meter Telescope project in version 13 of the TMT Science 
+    Requirements Document. This model consists of a seven layer atmosphere, with 
+    altitudes and relative weights given in the table below:
+  </P>
+  <IMG src="tmt_srd_v13_cn2.gif"/>
+  <P>
+	The power spectrum assumed for these layers is not stated in the paper, 
+	Here we assume it satisfy Komolgorov law.
+  </P> 
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	ram=tmt_srd_v13_cn2_mod();
+	num=atm_mod_lay_number(ram);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">power_spectrum</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_lay</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_model</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ell_mau_kea_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">pal_dimm_mass_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">huf_val_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">slcsat_day_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">slcsat_night_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ell_cer_pac_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">gemini_glao_study_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">get_atm_mod_dwfh</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">get_atm_mod_layers</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_layers_fits</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lay_number</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lay_heights</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lays_transform</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">atmosphere</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

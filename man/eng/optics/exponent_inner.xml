@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> exponent_inner  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006</DATE>
+  <SHORT_DESCRIPTION name="exponent_inner"> construct an exponential inner scale.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[in]=exponent_inner(inner_scale)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>inner_scale  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the inner scale in metre. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output inner scale;</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct an exponential inner scale.  
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	pl=power_law(0.1,1e-6);
+	in=exponent_inner(0.001);
+	ps=power_spectrum(pl,in);
+ ]]></EXAMPLE>
+  <AUTHOR> Chen jingyuan, IAPCM, China. </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">power_spectrum</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">frehlich_inner</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">null_inner</LINK> </SEE_ALSO_ITEM>    
+  </SEE_ALSO>
+</MAN>

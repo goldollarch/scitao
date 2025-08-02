@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="diagnose"> A block to output the diagnose information.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>diagnose</ModuleName>
+	
+	<ModuleIcon>diagnose.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block output the diagnose information.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set diagnose file parameters</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>file name</ItemTitle>
+				<ItemContent>diagnose</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>Accept herited events 0/1</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>file name : </Subject>
+				<Content>input the diagnose information filename.</Content>
+			</Explain>
+			<Explain>
+				<Subject>Accept herited events 0/1 : </Subject>
+				<Content>set the herited events, "0" represents no,"1" represents yes.</Content>
+			</Explain>
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>diagnose_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/DIAGNOSE.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/diagnose.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">display</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">file_fits</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">animate</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

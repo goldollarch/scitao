@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> reconstructor  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="reconstructor"> construct a wavefront reconstructor. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[rec]=reconstructor(ap, dm, lenslets, znk, subaperture_illumination_threshold, eigenvalue_threshold)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>ap  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the aperture.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>dm  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the deformable mirror. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>lenslets  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: lenslets of Shack-Hartmann sensor. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>znk  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the Zernike mode to projected out. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>subaperture_illumination_threshold  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the subaperture illumination threshold. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>eigenvalue_threshold  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the eigenvalue threshold. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>rec  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output reconstructors. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct a least squares reconstructors. it aims to represent reconstructors that yield zonal 
+    residuals as well as some number of zernike mode ( here tip and tilt ) residuals.
+  </P>
+  <P>
+	this function construct a least squares reconstructor from an aperture, 
+	an ideal deformable mirror, and a square lenslet array. The influence function of 
+	the ideal deformable mirror is assumed to be pyramidal.
+  </P>
+  <P>
+	NOTE - currently only Fried geometry is supported
+  </P>
+  <P>
+	The subaperture illumination threshold argument to this function allows one to zero 
+	geometry matrix elements corresponding to actuator influence functions and subapertures 
+	that overlap by less than the threshold value. This value should lie between zero and one.
+  </P>
+  <P>
+	The eigenvalue threshold argument to this function allows one to remove modes from 
+	the reconstructor with eigenvalues lower than the threshold. This argument is 
+	interpreted as the ratio between the threshold eigenvalue and the largest eigenvalue, 
+	and its value should lie between zero and one. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	nsubaps=16;
+	areal_threshold=0.5;
+	eigenvalue_threshold=1e-6;
+	
+	lenslet_x_axes=16;lenslet_y_axes=16;
+	focal_length = .012246;lenslet_pitch = .000252;
+	final_wf_pix_per_lenslet = 32;final_wf_pix_per_xform = 32;
+	LA=lnslt_array(lenslet_x_axes,lenslet_y_axes,focal_length,lenslet_pitch,final_wf_pix_per_lenslet,final_wf_pix_per_xform);
+
+	D = 16*lenslet_pitch;
+	AP=circle(D);
+	
+	pitch = D/nsubaps;
+	actuator_velocity = 100;
+
+	dm_AP=circle(2*D);
+	act_dim=nsubaps+1;	
+	act=actuator_array(act_dim,act_dim,pitch,actuator_velocity);
+	dm=ideal_dm(dm_AP,act);
+
+	projection_modes=znk_mod(1);
+	projection_modes=set_znk_cos_coef(projection_modes,1,1,1);
+	projection_modes=set_znk_sin_coef(projection_modes,1,1,1);
+
+	Reconstructor= reconstructor(AP,dm,LA,projection_modes,areal_threshold,eigenvalue_threshold);
+	reconstructor_fits(Reconstructor,"reconstructor");
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">reconstructor_fits</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">zernike_residuals</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">zonal_residuals</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">reconstructor</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

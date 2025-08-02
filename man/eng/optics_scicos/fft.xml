@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="fft"> A block performs FFT of the field distribution.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>fft</ModuleName>
+	
+	<ModuleIcon>fft.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block set the spatial filter parameter.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set the spatial filter parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>perform FFT direction (1/-1) </ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>perform FFT direction (1/-1)  : </Subject>
+				<Content></Content>
+			</Explain>
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>o</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>			
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>fft_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/PIP_FFT.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/pip_fft.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">pip_fft</LINK>
+       </SEE_ALSO_ITEM> 
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> tilt  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="tilt"> introduces tilt into the field distribution.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=tilt(field_in,tx,ty) </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>tx  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the tilt of the X direction in radians. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ty  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the tilt of the Y direction in radians. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    filters the field through tilt filter. tx and ty must be passed to  
+    even if one of the two equals to zero
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.04,1e-6);
+	f2=rect_ap(f1,0.02);
+	f3=tilt(f2,1e-4,-1e-4);
+	f4=forvard(f3,8);
+	f5=cros_out(f4,"out");
+
+	temp = fscanfMat('out.txt');
+	x=zeros(1,256);pha_x=zeros(1,256);
+	x(:)=temp(:,1);pha_x(:)=temp(:,4);
+	plot2d(x,pha_x);	
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lens</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">zernike</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

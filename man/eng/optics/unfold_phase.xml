@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> unfold_phase  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="unfold_phase"> unfolds the phase of a field (or difractive wavefront)  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[pha_out]=unfold_phase(num,pha_in,koeff,rad[,type])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>num  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the dimension of the field </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pha_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input phase matrix of the field. it must be num*num matrix. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pha_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output phase matrix </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>koeff  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: 
+          the coefficient to multiply the phase, it may be 
+          necessary to translate the phase into dimensional units 
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>rad  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the radius of blackening aperture. relative to grid size </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>type  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: a identifier to demonstrate the base function 
+          (unf3 or unf4) to use.if default then unf3 used. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    unfolds the phase by the function unf3 of LightPipes.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.01,1e-6,60);
+	f2=lens(f1,5);
+	pha=field_pha(f2);
+	pha1=unfold_phase(60,pha,1,0.01);
+	pha2=unfold_phase(60,pha,1,0.01,1);
+
+	xbasc();drawlater();
+	subplot(1,3,1);surf(pha);
+	subplot(1,3,2);surf(pha1);
+	subplot(1,3,3);surf(pha2);
+	drawnow();
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM><LINK PATH="./">field_pha</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">file_pha</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

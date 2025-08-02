@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> l_amplify  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="l_amplify"> filters the field through a laser medium.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=l_amplify(field_in, gain, base, i_sat)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>gain  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the gain value G0 </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>base  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the length L, must be positive. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>i_sat  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the saturation intensity of the medium Isat. must be positive, </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    multiply below expression to the intensity and phase of the input field:
+  </P>
+  <IMG src="l_amplify.gif"/>
+  <P>
+    The <VERB>l_amplif</VERB> introduces a simple single-layer model of a laser amplifier.
+    It is useful for modeling of amplifiers and lasers with active medium amplifier
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	m=1;nm=1e-9*m;mm=1e-3*m;cm=1e-2*m;
+	lambda=1000*nm;	sz=30*mm; N=100;R=5*mm;
+	
+	Field=begin(sz,lambda,N);
+	Field=gauss(Field,R);
+	in=field_int(Field);
+	
+	gain=3/m;i_sat=0.1;base=100*cm;
+
+	Field=l_amplify(Field,gain,base,i_sat);
+	out=field_int(Field);
+	
+	xbasc();drawlater();
+	subplot(1,2,1);surf(in);
+	subplot(1,2,2);surf(out);	
+	drawnow();
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">absorber</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

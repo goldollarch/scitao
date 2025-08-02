@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> file_pgm  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="file_pgm"> writes intensity distribution into a pgm file. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=file_pgm(field_in,fnam[,time[,gamma[,imax[,max_val]]]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>fnam </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output filename, it must be a string. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>time </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the timestamp of the outfile name. default time = -1. If the value of time is not positive,then the timestamp of the outfile will not be included.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>gamma </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: 
+          the value of contrast correction constant, default gamma=2.0.
+          higher G gives better contrast in low intensities, 
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+   <PARAM_ITEM>
+  <PARAM_NAME>imax  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:
+          the grid dimension or sampling dimension (must be integer), default imax=128.
+          it equals to grid sampling if you pass the zero to imax
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>max_val  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the number of gray levels (integer), default max_val=255 .</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+     write the intensity distributions of a field into a pgm file.
+     Files produced with <VERB>file_pgm</VERB> can be imported by a popular X graphical 
+     program XV, which saves to many other formats and allows for different 
+     conversions. Pgm stays for ''portable graymap'' and can be converted to
+     other formats with <VERB>netpbm</VERB> or <VERB>pbmplus</VERB> packages. Files produced with  
+     <VERB>file_pgm</VERB> can also be imported by the Scilab function <VERB>fil_ter</VERB>. 
+     The gamma parameter for outfiles that are saved for further used 
+     has to be set to 1 (as mentioned before, the default is 2). 
+
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	F1=begin(0.01,1e-6);
+	F2=gauss(F1,0.004);
+	
+	file_pgm(F2,"file1");	
+	file_pgm(F2,"file2",1);	
+	file_pgm(F2,"file3",-1,3);	
+	file_pgm(F2,"file4",-1,3,0);	
+	file_pgm(F2,"file5",-1,3,64);	
+	file_pgm(F2,"file6",-1,3,64,100);	
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM><LINK PATH="./">dwf_fits</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">file_ps</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">file_int</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">file_pha</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">cros_out</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

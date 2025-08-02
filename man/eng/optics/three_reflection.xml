@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> three_reflection  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006</DATE>
+  <SHORT_DESCRIPTION name="three_reflection"> reflected orthonormal transformation in 3D space.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[tf_out]=three_reflection(tf_in, tp, tv)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>tf_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the input 3D frame.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>tp  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  a pointer which locates in the refleced plane. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>tv  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the normal vector of  the reflected plane. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+    <PARAM_ITEM>
+  <PARAM_NAME>tf_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output 3D frame.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    reflected orthonormal transformation in 3D space.  
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	tp=three_point(0,0,0);
+	tf=three_frame();
+	tv_reflect=three_vector(0,0,1);
+	tf=three_reflection(tf,tp,tv_reflect);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">three_point</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">three_vector</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">three_frame</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">three_translation</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">three_rotation</LINK> </SEE_ALSO_ITEM>    
+  </SEE_ALSO>
+</MAN>

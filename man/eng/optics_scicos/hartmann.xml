@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="hartmann"> A block to model a Shack-Hartmann sensor.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>hartmann</ModuleName>
+	
+	<ModuleIcon>hartmann.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block set Shack_Hartmann sensor parameter.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set Shack_Hartmann sensor parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the number of lenslets</ItemTitle>
+				<ItemContent>[16;16]</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>size of the square lenslet (in meters)</ItemTitle>
+				<ItemContent>0.000252</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>focal length of the lenslets (in meters)</ItemTitle>
+				<ItemContent>0.012246</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>final wavefront pixels per lenslet/transform</ItemTitle>
+				<ItemContent>[32;32]</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>transform wavefront file name</ItemTitle>
+				<ItemContent>void</ItemContent>
+			</Item>			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>the number of lenslets : </Subject>
+				<Content>a 2 vector specifying the number of lenslets.</Content>
+			</Explain>
+			<Explain>
+				<Subject>size of the square lenslet (in meters) : </Subject>
+				<Content>set the size.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>focal length of the lenslets (in meters) : </Subject>
+				<Content>set the focal length.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>final wavefront pixels per lenslet/transform : </Subject>
+				<Content>set the number of transformed pixel.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>transform wavefront file name : </Subject>
+				<Content>input a filename.</Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>		
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>scao_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/HARTMANN.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/hartmann.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">aperture</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">df_mirror</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">reconstructor</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">lnslt_array</LINK>
+       </SEE_ALSO_ITEM>       
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">create_shcentroids</LINK>
+       </SEE_ALSO_ITEM>       
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

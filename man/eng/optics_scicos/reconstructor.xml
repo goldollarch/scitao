@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="reconstructor"> A block to model wavefront reconstructor.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>reconstructor</ModuleName>
+	
+	<ModuleIcon>recon.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block set the least squares reconstructors parameter.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set least squares reconstructors  parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the number of subapertures</ItemTitle>
+				<ItemContent>16</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>eigenvalue threshold</ItemTitle>
+				<ItemContent>1e-6</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>subaperture illumination threshold</ItemTitle>
+				<ItemContent>0.5</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>reconstructor file name</ItemTitle>
+				<ItemContent>void</ItemContent>
+			</Item>			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>the number of subapertures : </Subject>
+				<Content></Content>
+			</Explain>
+			<Explain>
+				<Subject>eigenvalue threshold : </Subject>
+				<Content></Content>
+			</Explain>			
+			<Explain>
+				<Subject>subaperture illumination threshold : </Subject>
+				<Content></Content>
+			</Explain>			
+			<Explain>
+				<Subject>reconstructor file name : </Subject>
+				<Content></Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>			
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>scao_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/RECONSTRUCTOR.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/reconstructor.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">hartmann</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">reconstructor</LINK>
+       </SEE_ALSO_ITEM>       
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

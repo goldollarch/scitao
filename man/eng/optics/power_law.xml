@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> power_law  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="power_law"> construct a power law for turbulent spectrum.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[pl]=power_law(r_0_meters,r_0_ref_wavelength_meters[,exponent])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>r_0_meters  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  r0 in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>r_0_ref_wavelength_meters  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the r0 reference wavelength in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>exponent  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: pow exponent. -11/3.0 is defaulted (Kolmogrov pow law). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pl  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output power law  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct a power law for turbulent spectrum. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	pl=power_law(0.1,1e-6);
+	in=null_inner();
+	ps=power_spectrum(pl,in);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">power_spectrum</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">greenwood_power</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">von_karman_power</LINK> </SEE_ALSO_ITEM>  
+  </SEE_ALSO>
+</MAN>

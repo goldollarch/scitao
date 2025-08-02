@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="aperture">A block to model an aperture. 
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>aperture</ModuleName>
+	
+	<ModuleIcon>AP.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>The block represent an aperture.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set the aperture parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the number of ports ( 1/2 )</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>	
+			<Item>				
+				<ItemTitle>aperture type ( 0/1/2/3/4/5 )</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>	
+			<Item>				
+				<ItemTitle>diameter,x_size,or in_edge_length</ItemTitle>
+				<ItemContent>5</ItemContent>
+			</Item>	
+			<Item>				
+				<ItemTitle>in_diameter, or y_size</ItemTitle>
+				<ItemContent>2</ItemContent>
+			</Item>	
+			<Item>					
+				<ItemTitle>nspiders, or in_edge_length</ItemTitle>
+				<ItemContent>4</ItemContent>
+			</Item>	
+			<Item>				
+				<ItemTitle>spider_width, or in_gap_size</ItemTitle>
+				<ItemContent>0.2</ItemContent>					
+			</Item>
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>the number of ports ( 1/2 ) : </Subject>
+				<Content>  input the number of ports,1(default) or 2.</Content>
+			</Explain>
+			<Explain>							
+				<Subject>aperture type ( 0/1/2/3/4/5 ) : </Subject>
+				<Content>  input the aperture type. 0 : represent a circular aperture. 1(default) : represent an annular aperture. 2 : represent a rectangular aperture. 3 : represent a hexagonal aperture. 4 : represent a spidered annular aperture. 5 : represent a tiled hexagonal aperture.</Content>								
+			</Explain>
+			<Explain>								
+				<Subject>diameter,x_size,or in_edge_length : </Subject>
+				<Content>if the aperture type equal to 0,1,4,5, the value represent "diameter" in meters.   if the aperture type equal to 2, the value represent "x_size" in meters.   if the aperture type equal to 3, the value represent "in_edge_length" in meters. </Content>
+			</Explain>
+			<Explain>								
+				<Subject>in_diameter, or y_size : </Subject>
+				<Content>if the aperture type equal to 1,4,5, the value represent "in_diameter" in meters.   if the aperture type equal to 2, the value represent "y_size" in meters.</Content>
+			</Explain>
+			<Explain>					
+				<Subject>nspiders, or in_edge_length : </Subject>
+				<Content>if the aperture type equal to 4, the value represent "nspiders".   if the aperture type equal to 5, the value represent "in_edge_length" in meters.</Content>
+			</Explain>
+			<Explain>								
+				<Subject>spider_width, or in_gap_size : </Subject>
+				<Content>if the aperture type equal to 4, the value represent "spider_width" in meters.   if the aperture type equal to 5, the value represent "in_gap_size" in meters.</Content>					
+			</Explain>
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active: </Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>mode:</Subject>
+			<Content>no</Content>
+		</Property>			
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>			
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>ap_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>scitao/macros/APERTURE.sci</InterfacingFunction>
+	
+	<ComputationalFunction>scitao/src/scicos/aperture.c</ComputationalFunction>
+	
+
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+       		<LINK PATH="./">emitter</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">circle</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">rectang</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">annul_ap</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">hex_ap</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">spid_annul_ap</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">spid_annul_ap</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">til_hex_ap</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">aperture_transform</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>	
+	
+	
+	<authors> Chen jingyuan, IAPCM,China.</authors>
+	<FilingDate> 2006-05-08 </FilingDate>
+
+</MAN>

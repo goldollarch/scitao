@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="controller"> A block to model proportional integral controller.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>controller</ModuleName>
+	
+	<ModuleIcon>pic.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block set the proportional integral controller parameter.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>set the proportional integral controller parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>type (ttm/dm)</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>proportional gain</ItemTitle>
+				<ItemContent>1e-2</ItemContent>
+			</Item>		
+			<Item>
+				<ItemTitle>integral gain</ItemTitle>
+				<ItemContent>1e-1</ItemContent>
+			</Item>				
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>type (ttm/dm):</Subject>
+				<Content>input the PIC type. 0(default): represent a TTM PIC. 1: represent a DM PIC.</Content>
+			</Explain>		
+			<Explain>
+				<Subject>proportional gain: </Subject>
+				<Content>1e-2(default)</Content>
+			</Explain>
+			<Explain>
+				<Subject>integral gain: </Subject>
+				<Content>1e-1(default)</Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always_active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>			
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>scao_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/CONTROLLER.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/controller.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">df_mirror</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">tt_mirror</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">reconstructor</LINK>
+       </SEE_ALSO_ITEM>       
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">pi_controller</LINK>
+       </SEE_ALSO_ITEM>       
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">ttm_pi_controller</LINK>
+       </SEE_ALSO_ITEM>       
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">dm_pi_controller</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China) </authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

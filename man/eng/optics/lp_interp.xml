@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> lp_interp  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="lp_interp"> interpolate (linear) the field into new size and dimension. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=lp_interp(field_in,size_new[,new_number[,x_shift[,y_shift[,angle[,magnif]]]]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>size_new  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the new size after transformt.( default is 0), 
+          if size_new=0, then the size of the field will not changed.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>new_number  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: input the new number after transformt(integer). default is 0,
+          if new_number=0, then the size of the field will not changed.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>x_shift  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the shifts of the X direction in metre. ( default is 0.)</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>y_shift  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the shifts of the Y direction in metre. ( default is 0.)</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>angle  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the rotated angle in degree.( default is 0. )  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>magnif </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the coefficient of magnification ( default is 1.). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    compare to <VERB>interpol</VERB>, <VERB>interp</VERB> is more fast (but its effect is not good).
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.01,1e-6);
+	f2=rect_ap(f1,0.005);
+	f3=forvard(f2,0.2);
+	file_ps(f3,"int1");
+	f4=lp_interp(f3,0.0075,64);
+	field_plot(f4);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">interpol</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">interpolate</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

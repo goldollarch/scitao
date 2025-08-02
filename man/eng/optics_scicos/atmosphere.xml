@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="atmosphere">A block to model refractive atmosphere 
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>atmosphere</ModuleName>
+	
+	<ModuleIcon>atm.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>A block to set refractive atmosphere model.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set refractive atmosphere model parameters</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the number of ports</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>	
+			<Item>				
+				<ItemTitle>atmosphere model type</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>	
+			<Item>				
+				<ItemTitle>layer number</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>	
+			<Item>				
+				<ItemTitle>layer pixscales </ItemTitle>
+				<ItemContent>0.02</ItemContent>
+			</Item>	
+			<Item>					
+				<ItemTitle>Hufnagel Valley pseudowind</ItemTitle>
+				<ItemContent>21</ItemContent>
+			</Item>	
+			<Item>				
+				<ItemTitle>Fred number r_0 and wavelength</ItemTitle>
+				<ItemContent>[0.05;0.5e-6]</ItemContent>					
+			</Item>
+			<Item>				
+				<ItemTitle>Gemini GLAO study model parameters</ItemTitle>
+				<ItemContent>[1;1;0;10]</ItemContent>
+			</Item>				
+			<Item>				
+				<ItemTitle>layer heights</ItemTitle>
+				<ItemContent>1000</ItemContent>
+			</Item>				
+			<Item>				
+				<ItemTitle>layer power spectrum</ItemTitle>
+				<ItemContent>[0;-11/3.0;0;0.04;10]</ItemContent>
+			</Item>				
+			<Item>				
+				<ItemTitle>subharmonic method parameters</ItemTitle>
+				<ItemContent>[0;5;5;3]</ItemContent>
+			</Item>				
+			<Item>				
+				<ItemTitle>Hardy wind model parameters</ItemTitle>
+				<ItemContent>[8;30;12000;4000]</ItemContent>
+			</Item>
+			<Item>				
+				<ItemTitle>layer_foreshortening</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>			
+			<Item>				
+				<ItemTitle>layer_axes_wind_vector_aligned</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>				
+			<Item>				
+				<ItemTitle>propagation plan type</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>				
+			<Item>				
+				<ItemTitle>total simulation time</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>				
+			<Item>				
+				<ItemTitle>refractive layers file name</ItemTitle>
+				<ItemContent>void</ItemContent>
+			</Item>				
+							
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>the number of ports: </Subject>
+				<Content>  input the number of ports,1(default).</Content>
+			</Explain>
+			<Explain>							
+				<Subject>atmosphere model type : </Subject>
+				<Content>  input the atmosphere model type. 0(default) : represent atmospheric model. 1 : represent Ellerbroek Cerro Pachon model. 2 : represent Ellerbroek Mauna Kea model. 3 : represent Palomar DIMM MASS model. 4 : represent Hufnagel Valley model. 5 : represent SLCSAT day model. 6 : represent SLCSAT night model. 7 : represent TMT SRD v13 Cn2 model. 8 : represent Gemini GLAO study model.</Content>								
+			</Explain>
+			<Explain>								
+				<Subject>layer number  : </Subject>
+				<Content>input the number of layer,1(default). </Content>
+			</Explain>
+			<Explain>								
+				<Subject>layer pixscales : </Subject>
+				<Content>input the pixscales of layer,0.02(default).</Content>
+			</Explain>
+			<Explain>					
+				<Subject>Hufnagel Valley pseudowind : </Subject>
+				<Content></Content>
+			</Explain>
+			<Explain>								
+				<Subject>Fred number r_0 and wavelength : </Subject>
+				<Content></Content>					
+			</Explain>
+			<Explain>
+				<Subject>Gemini GLAO study model parameters: </Subject>
+				<Content></Content>
+			</Explain>			
+			<Explain>
+				<Subject>layer heights: </Subject>
+				<Content></Content>
+			</Explain>	
+			<Explain>
+				<Subject>layer power spectrum: </Subject>
+				<Content></Content>
+			</Explain>	
+			<Explain>
+				<Subject>subharmonic method parameters: </Subject>
+				<Content></Content>
+			</Explain>	
+			<Explain>
+				<Subject>Hardy wind model parameters: </Subject>
+				<Content></Content>
+			</Explain>	
+			<Explain>
+				<Subject>layer_foreshortening: </Subject>
+				<Content></Content>
+			</Explain>	
+			<Explain>
+				<Subject>layer_axes_wind_vector_aligned: </Subject>
+				<Content></Content>
+			</Explain>	
+			<Explain>
+				<Subject>propagation plan type: </Subject>
+				<Content>0(default) : represent geometric propagation plan. 1 : represent near field fresnel propagation plan.</Content>
+			</Explain>	
+			<Explain>
+				<Subject>total simulation time: </Subject>
+				<Content>1 second(default).</Content>
+			</Explain>	
+			<Explain>
+				<Subject>refractive layers file name: </Subject>
+				<Content>input the file name.</Content>
+			</Explain>	
+	
+			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active: </Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>		
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>atm_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/ATMOSPHERE.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/atmosphere.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+       		<LINK PATH="./">aperture</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+       		<LINK PATH="./">emitter</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">ref_atm_lay</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">ref_atm_model</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors> Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate> 2006-08 </FilingDate>
+
+</MAN>

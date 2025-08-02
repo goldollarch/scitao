@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> set_lay_wind  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="set_lay_wind"> set the wind of a refractive layer.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[lay_out]=set_lay_wind(lay_in,wind)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>lay_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the input refractive layer. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>wind  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the input refractive layer. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>lay_out </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output refractive layer. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    set the wind of a refractive layer.  
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	lay=ref_atm_lay(1);
+	tv_wind=three_vector(10,30,0);
+	lay_out=set_lay_wind(lay,tv_wind);
+	ref_atm_lay_fits(lay_out,"lay_out");
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_lay</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_lay_frame</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_lay_fits</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

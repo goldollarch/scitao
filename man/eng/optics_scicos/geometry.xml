@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="geometry"> A block to model geometrical transformation.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>geometry</ModuleName>
+	
+	<ModuleIcon>geom.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block set Set geometrical transformation parameter.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set geometrical transformation parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>translation vector</ItemTitle>
+				<ItemContent>[0;0]</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>rotation angle</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>reflect plane normal</ItemTitle>
+				<ItemContent>[0;0;0]</ItemContent>
+			</Item>			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>translation vector : </Subject>
+				<Content>set the translation vector.</Content>
+			</Explain>
+			<Explain>
+				<Subject>rotation angle : </Subject>
+				<Content>set the angle.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>reflect plane normal : </Subject>
+				<Content>set the normal vector.</Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>geo_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/GEOMETRY.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/geometry.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">three_translation</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">three_rotation</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">three_reflection</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

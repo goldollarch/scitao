@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> scao_simulation  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="scao_simulation">a simple example for Single-Conjugate adaptive optical system simulation.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM> scao_simulation([simu_para[,filename]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>simu_para  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the simulation parameter objects. if defaulted, 
+          then the simulation parameter is an array having 57 elements .</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>filename  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the wave reconstructor filename to be used 
+          (the system will spend much time to create a reconstructor if defaulted). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    A simple example for Single-Conjugate adaptive optical system simulation. 
+  </P>
+  <P>
+	This program performs electromagnetic wave propagation from
+	multiple natural guide stars through a layered model of the
+	atmospheric turbulence and down to an aperture.  The wavefronts
+	are then propagated through a simulated AO system to form AO
+	compensated PSF's.  This simulation does not attempt to perform
+	near field wavefront propagation through the telescope optical
+	system, and wavefronts can only be magnified or demagnified by
+	manually resetting their pixel scales.
+  </P>
+  <P>
+	The simulation performs the following steps.  At the control loop
+	update rate, wavefronts from a natural guide star at the sensing
+	wavelength are propagated down to the telescope aperture and are
+	reflected from a tip tilt mirror and a deformable mirror.  Both of
+	these mirrors are centered on the aperture, and are assumed to be
+	the same size as the aperture.  These wavefronts are then
+	propagated through a lenslet array, which is also centered on the
+	aperture.  To model the diffractive propagation to the lenslet
+	focal plane I scaled down the wavefront pixel scale by a factor of
+	the lenslet pitch over the dm actuator pitch before transforming
+	it with the lenslet array.
+  </P>
+  <P>
+	The wavefront in the lenslet array focal plane is then used to
+	compute the Shack Hartmann centroids.  These centroids are then
+	passed through a reconstructor to generate the tip tilt and
+	deformable mirror residuals.  This reconstructor is read from a
+	file specified by the user, which must be written in fits format
+	with the fits header keywords expected by Arroyo.  The tip tilt
+	and dm residuals are then passed to PI controllers that output the
+	commands, which are then fed back to the mirrors.
+  </P>
+  <P>
+	Plane wavefronts at the science wavelength are propagated from a
+	grid of points in the field through the atmosphere, tip tilt and
+	deformable mirrors and to the far field to form the science PSFs.
+	These propagations are time consuming, and the user may choose to
+	perform them at intervals that are some multiple of the control loop
+	update rate.
+  </P>
+  <P>
+    The simulating parameter object is very complicated, in order to simplify input,
+    we have designed a GUI to set it. below gives this GUI:
+  </P>
+  <IMG src="scao_ui.gif"/>
+  <P>
+	The following files can be written by scao_simulation 
+	(depending on parameters verbose and vverbose)
+  </P>
+  <P>
+		The reconstructor:
+		arroyo_least_squares_reconstructor_(nsubaps)x(nsubaps).fits 
+  </P>
+  <P>
+		The (n) atmospheric phase screens in the atmospehric model:
+		refractive_atmospheric_layer_(n).fits; where  n=[0,nlayers-1];        
+  </P>
+  <P>
+		The unaberrated wavefront in the pupil and focal planes, for each
+		detected wavelength:
+		unaberrated_pupil_wf_(wavelength).fits
+		unaberrated_focal_wf_(wavelength).fits
+  </P>
+  <P>
+		The uncorrected wavefront in the pupil and image planes, for each emitter
+		at each detected wavelength:
+		uncorrected_pupil_wf_(emitter)_(wavelength)_(timestep).fits,    
+		uncorrected_focal_wf_(emitter)_(wavelength)_(timestep).fits;    
+  </P>
+  <P>
+		The AO corrected wavefront in the pupil and image planes, for each emitter
+		at each detected wavelength:
+		corrected_pupil_wf_(emitter)_(wavelength)_(timestep).fits ,
+		corrected_focal_wf_(emitter)_(wavelength)_(timestep).fits;
+  </P>
+  <P>
+		The TTM and DM corrections applied to an uncorrupted wavefront, for each
+		detected wavelength:
+		tt_corrected_pupil_wf_(wavelength)_(timestep).fits,
+		dm_corrected_pupil_wf_(wavelength)_(timestep).fits;
+  </P>
+  <P>
+		The uncorrected wavefront at the pupil plane at the sensing wavelength:
+		uncorrected_sensing_pupil_wf_(timestep).fits ;
+  </P>
+  <P>
+		The corrected wavefront at the pupil plane at the sensing wavelength:
+		corrected_sensing_pupil_wf_(mitter)_(timestep).fits ;
+  </P>
+  <P>
+		The TTM and DM corrections applied to an uncorrupted wavefront, at the
+		sensing wavelength:
+		tt_corrected_sensing_pupil_wf_(emitter)_(timestep).fits,
+		dm_corrected_sensing_pupil_wf_(emitter)_(timestep).fits;
+  </P>
+  <P>
+		The wavefront in the focal plane of the lenslet array:	lnslt_wf_(timestep).fits ;
+  </P>
+  <P>
+		The centroids generated from the wavefront in the focal plane of the
+		lenslet array:		shcentroids_(timestep).fits ;
+  </P>
+  <P>
+		The TTM residuals generated by the reconstructor:modal_residuals_(timestep).fits   ;
+  </P>
+  <P>
+		The TTM commands generated by the PI controller:modal_commands_(timestep>.fits ;
+  </P>
+  <P>
+		The tip tilt mirror:tip_tilt_mirror_(timestep).fits ; 
+  </P>
+  <P>
+		The deformable mirror:deformable_mirror_(timestep).fits;
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	sim_para=[25 5 1 0 0.002 1 100 0 5e-2 2.67e-4 0 1e-7 0.6e-6 1 2 3 0 0 10000 5000 5 30 0.02 0.02	1 1 0 1 1 0 0 2 0 0 0 0	0.012246 0.000252 32 32 0 1	16 0.5 1e-6 1 0 0.05 0.5e-6 0 0	0 0 0 2.2e-6 8 8];
+	scao_simulation(sim_para);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">begin</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

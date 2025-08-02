@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="emitter"> A block to represent a wave emitter.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>emitter</ModuleName>
+	
+	<ModuleIcon>emitter.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block set emitter parameter.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set emitter parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the emitter type (pl/sp)</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>emit direction/position</ItemTitle>
+				<ItemContent>[0;0;1e10]</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>object or beacon</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the wavelength (meter)</ItemTitle>
+				<ItemContent>1e-6</ItemContent>
+			</Item>
+				<Item>
+				<ItemTitle>the grid dimension</ItemTitle>
+				<ItemContent>[256;256]</ItemContent>
+			</Item>
+				<Item>
+				<ItemTitle>pixel scale of grid </ItemTitle>
+				<ItemContent>0.02</ItemContent>
+			</Item>
+			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>the emitter type (pl/sp) : </Subject>
+				<Content>"0":represent the plane wave emitter; "1":represent the sphere wave emitter.</Content>
+			</Explain>
+			<Explain>
+				<Subject>emit direction/position : </Subject>
+				<Content>set the direction or position.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>object or beacon : </Subject>
+				<Content>set the light type.
+				"0":represent the object light.
+				"1":represent the beacon light.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>the wavelength (meter) : </Subject>
+				<Content>set the wavelength.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>the grid dimension : </Subject>
+				<Content>a 2 vector specifying the grid dimension.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>pixel scale of grid  : </Subject>
+				<Content>set the pixel scale.</Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>			
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>emt_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/EMITTER.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/emitter.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">emitter</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">start</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

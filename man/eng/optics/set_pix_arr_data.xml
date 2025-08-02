@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> set_pix_arr_data  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="set_pix_arr_data"> set the elements for a  pixel array.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[pix_arr_out]=set_pix_arr_data(pix_arr_in, data)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>pix_arr_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the input pixel array. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>data  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: array to be set. its size must be accord with the pixel array </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pix_arr_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output pixel array. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    set pixel array data. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	dim=100;arr=[];
+	for i=1:dim
+		for j=1:dim
+			sgn=i*j;
+			arr=[arr,sgn];
+		end
+	end  
+	pix_arr=pixel_array(dim);
+	pix_arr=set_pix_arr_data(pix_arr,arr);
+	a=pixarr_data(pix_arr);surf(a);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">pixel_array</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

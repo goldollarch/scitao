@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> lnslt_array  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="lnslt_array"> create an ideal lenslet array of Shack-Hartmann sensor.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[lnslt_arr]=lnslt_array( lenslet_x_axes, lenslet_y_axes, flength, lnslt_pitch, pix_per_lenslet,  pix_per_xform)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>lenslet_x_axes  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the number of lenslets along x axes. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>lenslet_y_axes  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: input the number of lenslets along y axes. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>flength  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the focal length of lenslet in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>lnslt_pitch  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the pitch of lenslet in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pix_per_lenslet  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the final pixel scale per lenslet. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pix_per_xform  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the final pixel per transform. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>lnslt_arr  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:the output lenslet array object.	</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    create an ideal square lenslet array for Shack-Hartmann sensor  
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	pitch=0.000252;
+	a=begin(0.004,1e-6,200); 
+	b=circ_ap(a,8*pitch);
+	l=lnslt_array(16,16,0.012246,0.000252,32,32);
+	c=lnslt_arr_transform(b,l);
+	dwf_fits(c,"dwf");
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lens</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lnslt_arr_transform</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

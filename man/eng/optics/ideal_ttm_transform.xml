@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> ideal_ttm_transform  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="ideal_ttm_transform"> transforms a wavefront by an ideal tip-tilt mirror.</SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[dwf_out]=ideal_ttm_transform(dwf_in, ttm)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwf_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field.it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ttm  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the tip-tilt mirror.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwf_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    transforms a wavefront by an ideal tip-tilt mirror .To perform the transformation
+    on a wavefront this function uses the mirror angular velocity to interpolate to 
+    the timestamp of the wavefront. The transformation is performed by applying the 
+    aperture transformation, and then adjusting the wavefront three_frame to account 
+    for the reflection. Supplying a wavefront with a timestamp that preceeds the 
+    internal one is an error. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	number=200;
+	wavelength=1e-6;
+	pixscl=1;timestamp=1;
+	
+	tf=three_frame();
+	tp=three_point(0,0,0);
+	tv_reflect=three_vector(0,0,1);
+	tf=three_reflection(tf,tp,tv_reflect);
+	dwfh=wavefront_header(wavelength,pixscl,number,number,tf);
+	dwfh=set_dwfh_timestamp(dwfh,timestamp);
+	emt=emitter(0,0,0,1);dwf=pl_wave(dwfh,emt);
+	
+	asec2rad=3.1416/180.0/3600.0;
+	ap=annul_ap(200,80);angular_velocity=100;
+	ttm=ideal_ttm(ap,angular_velocity);
+	commands_vector=three_vector(asec2rad,0,1);
+	ttm=ttm_update(ttm,commands_vector,0.01);	
+	
+	dwf=ideal_ttm_transform(dwf,ttm);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ideal_ttm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_ttm_timestamp</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_ttm_commands_vector</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ttm_update</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">tt_mirror</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

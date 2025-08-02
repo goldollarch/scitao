@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> forward  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="forward"> propagates the field by direct integration </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=forward(field_in,z[,new_size,[,new_number]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>z  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the propagating distance in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+   <PARAM_ITEM>
+  <PARAM_NAME>new_size  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: 
+          the new size of field at distance z. if it is set to 0,then the
+          size of field will not be changed. default new_size = 0 .
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM> 
+  <PARAM_ITEM>
+  <PARAM_NAME>new_number  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: 
+          the new number of field at distance z (must be integer).
+          if it is set to 0,then the size of field will not be changed. 
+          default new_number = 0 .
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    forward realize direct calculation of the Fresnel-Kirchoff integrals is 
+    very inefficient in two-dimensional grids. The number of operations is 
+    proportional to pow(N,4), where N is the grid sampling. With direct 
+    integration we do not have any reflection at the grid boundary</P>
+  <P>
+    so the size of the grid can just match the cross section of the field distribution.
+    forward has following features: (1) arbitrary sampling and size of square grid at
+    the input plane; (2) arbitrary sampling and size of square grid at the output plane, 
+    it means we can propagate field from a grid containing for example 52x52 points 
+    corresponding to 4.9x4.9cm to a grid containing 42x42 points and corresponding 
+    let's say 8.75x8.75 cm. (3) The direct calculation of diffraction integral in the 
+    Fresnel approximation is used, thus forward can not be used to propagate the field 
+    to a short distances. Use forvard of steps instead. (4) forward is very slow.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.01,1e-6);
+	f2=rect_ap(f1,0.005);
+	f3=forvard(f2,0.2);
+	field_plot(f3);
+	
+	f4=interpol(f3,0.0075,16);
+	f5=forward(f4,400,0.4);
+	field_plot(f5);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">forvard</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">steps</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lens_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">geom_propagation</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">near_angular</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">near_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">far_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">fraunhoffer_grt</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">fresnel_grt</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="../optics_scicos/">propagate</LINK></SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> fresnel  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="fresnel"> propagates the field by direct integration as a convolution. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=fresnel(field_in,z)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>z  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the diffractive distance in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+	Another possibility of a fast computer propagation is free from many of the 
+	drawbacks of the spectral algorithm of forvard. The operator may be numerically 
+	implemented with direct summation of the Fresnel-Kirchoff diffraction integral: 
+  </P>
+  <IMG src="fresnel_1.gif"/>
+  <P>
+	with functions U(x,y,0) and U(x,y,z) defined on rectangular grids. This integral 
+	may be converted into a convolution form which can be efficiently computed 
+	using FFT method. This method is free from many drawbacks of the spectral method 
+	implemented by forvard, although it is still very fast due to its use of FFT for 
+	computing of the integral sums. 
+  </P>
+  <P>
+	We'll explain this using two-dimensional example. Let the integral is defined 
+	in a finite interval (-L/2 to L/2): 
+  </P>
+  <IMG src="fresnel_2.gif"/>
+  <P>
+	Replacing functions U(x) and U(x1) with step functions Uj and Um , defined in the 
+	sampling points of the grid with j=0...N , and m=0...N we convert the above integral 
+	to the form: 
+  </P>
+  <IMG src="fresnel_3.gif"/>
+  <P>
+	Taking above integrals we obtain: 
+  </P>
+  <IMG src="fresnel_4.gif"/>
+  <P>
+	where: Km0,Kmj,Kmn are all analytically expressed with the help of Fresnel integrals, 
+	depending only onto the difference of indices. the Sums term can be easily calculated 
+	for all indices m as one convolution with the help of FFT. 
+  </P>
+  <P>
+    <VERB>fresnel</VERB> implements this above algorithm for two-dimensional diffraction 
+    integrals.Features to be taken into account: 
+  </P>
+  <P> 
+	It is almost as fast as <VERB>forvard</VERB> 
+    (still 2 to 5 times slower), it uses 8 times  more memory (to perform the 
+    two-dimensional convolution) than <VERB>forvard</VERB> and it allows for 
+    ''more honest'' calculation of Fresnel diffraction.
+  </P>
+  <P> 
+	As it does not require any protection bands at the edges of the region, 
+	the model may be built in a smaller grid, 
+    therefore the resources consumed and time of execution are 
+    comparable or even better than that of <VERB>forvard</VERB>. 
+  </P>
+  <P> <VERB>fresnel</VERB> does not accept negative propagation distance. </P>
+  <P> When possible <VERB>fresnel</VERB> has to be used as the main propagation 
+    engine within SAO toolbox. 
+  </P>
+  <P> <VERB>fresnel</VERB> does not produce valid results if the distance 
+    of propagation is comparable with (or less than) the characteristic size of the 
+    aperture, at which the field is diffracted. In this case <VERB>forvard</VERB>
+     or <VERB>steps</VERB> should be used. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.02,1e-6);
+	f2=circ_ap(f1,0.005);
+	f3=fresnel(f2,1);
+	field_plot(f3);
+	
+	cros_out(f3,"file1");	
+	temp = fscanfMat('file1.txt');
+	x=zeros(1,256);int_x=zeros(1,256);
+	x(:)=temp(:,1);int_x(:)=temp(:,2);
+	plot2d(x,int_x);	
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM><LINK PATH="./">forvard</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">forward</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">steps</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lens_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">geom_propagation</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">near_angular</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">near_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">far_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">fraunhoffer_grt</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">fresnel_grt</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="../optics_scicos/">propagate</LINK></SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

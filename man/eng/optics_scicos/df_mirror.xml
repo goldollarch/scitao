@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="df_mirror"> A block to model ideal deformable mirror.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>df_mirror</ModuleName>
+	
+	<ModuleIcon>dm.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block set the deformable mirror parameter.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set the deformable mirror parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>mirror aperture parameter</ItemTitle>
+				<ItemContent>[0;5;2;4;0.2]</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the dimension of actuators</ItemTitle>
+				<ItemContent>[8;8]</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>the actuator pitch (meter)</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>the actuator velocity (m/s)</ItemTitle>
+				<ItemContent>100</ItemContent>
+			</Item>			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>mirror aperture parameter : </Subject>
+				<Content>a 5 vector setting the aperture parameter. 
+				In turn represent "aperture type", "diameter,x_size,
+				or in_edge_length", "in_diameter, or y_size", "nspiders,
+				or in_edge_length" and "spider_width, or in_gap_size"  .  see the aperture. </Content>
+			</Explain>
+			<Explain>
+				<Subject>the dimension of actuators : </Subject>
+				<Content>a 2 vector specifying the number of the actuators.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>the actuator pitch (meter) : </Subject>
+				<Content>set the pitch.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>the actuator velocity (m/s) : </Subject>
+				<Content>set the velocity.</Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>			
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>scao_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/DF_MIRROR.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/df_mirror.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">aperture</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">tt_mirror</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">controller</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">hartmann</LINK>
+       </SEE_ALSO_ITEM>       
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">ideal_dm</LINK>
+       </SEE_ALSO_ITEM>       
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

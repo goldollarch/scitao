@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="propagate"> A block to model wavefront propagator.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>propagate</ModuleName>
+	
+	<ModuleIcon>prop.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block set the propagation parameters.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set the propagation parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>propagating method</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>propagating distance</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>focus or pixel scale</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>final axes</ItemTitle>
+				<ItemContent>[256;256]</ItemContent>
+			</Item>			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>propagating method : </Subject>
+				<Content>the propagator type,
+				0(default): represent geometric propagate transform.
+				1: represent forvard transform.
+				2: represent fresnel transform.
+				3: represent near field angular transform.
+				4: represent near field fresnel transform.
+				5: represent far field fresnel transform.
+				6: represent far field fraunhoffer transform.
+				7: represent far fresnel goertzel reinsch transform.
+				8: represent far fraunhoffer goertzel reinsch transform.
+				9: represent lens forvard transform.
+				10: represent lens fresn transform.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>propagating distance : </Subject>
+				<Content>in metre.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>focus or pixel scale : </Subject>
+				<Content>in metre.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>final axes : </Subject>
+				<Content>a 2 vector specifying the axes dimension.</Content>
+			</Explain>			
+			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>			
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>ap_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/PROPAGATE.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/propagate.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">fresnel</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">forward</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">steps</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">lens_forvard</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">geom_propagation</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">near_angular</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">near_fresnel</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">far_fresnel</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">fraunhoffer_grt</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">fresnel_grt</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">forvard</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

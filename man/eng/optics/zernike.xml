@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> zernike  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="zernike"> introduces arbitrary Zernike aberration into the field distribution.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=zernike(field_in, n, m, R, A)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>n  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the radial order. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>m  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the azimuthal order </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>R  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the radius in metre. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>A  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the amplitude of aberration </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+	Any aberration in a circle can be decomposed over a sum of Zernike polynomials.
+	Cylindric lens can be modeled as a combination of Zernike (see below example)
+  </P>
+  <P>
+	We can also uniformly introduce the lens and tilt using Zernike.
+	The difference is that lens and tilt accept conventional meters and radians, 
+	which are widely in use for description of optical setups, 
+	while Zernike uses the amplitude of the aberration, 
+	which frequently has to be derived from the technical description. 
+  </P>
+  <P>
+	polynomials with negative n are rotated 90 degree relative to the polynomials 
+	with positive n. For example Zernike(f,5,3,1,1) gives the same aberration as
+	Zernike(f,5,-3,1,1), but the last is rotated 90 degree. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.01,1e-6);
+	f2=circ_ap(f1,0.0045);
+	file_ps(f2,"cl0");
+	f3=zernike(f2,2,2,0.0045,20);
+	f4=zernike(f3,2,0,0.0045,-10);
+	f5=fresnel(f4,1.55);
+	f6=interpol(f5,0,0,0,0,45);
+	dwf_fits(f6,"cl1");
+ ]]></EXAMPLE>
+  <AUTHOR> Chen jingyuan, IAPCM, China.  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lens</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">tilt</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">znk_mod</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

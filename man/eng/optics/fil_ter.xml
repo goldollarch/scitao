@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> fil_ter  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="fil_ter"> file filter, allows for operations on the phase or intensity arbitrarily.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=fil_ter(field_in,c1,c2,fname[,norm])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in</PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>c1  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: character constant with valid values 'int' and 'pha'. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>c2  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: character constant with valid values 'mult' and 'subst' </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>fname</PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: 
+          the name of a file containing intensity/phase mask. 
+          It may be portable graymap or anymap (*.pgm, *.pnm)with grayscale data. 
+          the Matrix data of the fname must have the same dimensions as field_in.  
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM> 
+  <PARAM_ITEM>
+  <PARAM_NAME>norm </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: default norm = 0. argument indicating if the intensity mask should be normalized before applying. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>   
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out</PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    The files include phase and intensity distributions may be produced with a <VERB>SAO</VERB> 
+    function itself. <VERB>File_int</VERB>, <VERB>file_pha</VERB> and <VERB>file_pgm</VERB> provide 
+    such a possibility. The dimensions of the exported and imported distributions must be the same 
+    (this can be fixed with <VERB>interpol</VERB>), otherwise the behavior is not defined. 
+    Any (square) file (gif,tiff, bmp) containing graphics, 
+    can be converted into pgm format - for example using <VERB>xv</VERB>, and 
+    imported by <VERB>fil_ter</VERB> as the intensity or the phase distribution. 
+  </P>
+  <P>
+    some examples(we suppose field_in=f):
+  </P>
+  <P>
+	<VERB>fil_ter</VERB>(f,"int","mult","aa"): filter through intensity mask from file aa.
+  </P>
+  <P>
+	<VERB>fil_ter</VERB>(f,"pha","subst","aa"): substitute the phase with phase taken from file aa     
+  </P>
+  <P>
+	<VERB>fil_ter</VERB>(f,"pha","mult","aa"): filter the field through phase filter aa 
+  </P>
+  <P>
+	<VERB>fil_ter</VERB>(f,"int","subst","aa"): substitute intensity with one taken from file aa 
+  </P>
+  <P>
+	<VERB>fil_ter</VERB>(f,"int","subst","aa",1): substitute intensity with a normalized one taken from file aa
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.01,1e-6);
+	f2=gauss(f1,0.004);
+	
+	file_int(f2,"file",-1,0,1);	
+	file_pgm(f2,"file",-1,2,0);
+	
+	f3=fil_ter(f1,"int","mult","file.txt");	
+	f4=fil_ter(f3,"pha","subst","file.pgm");
+	
+	field_plot(f4);	
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">pip_fft</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

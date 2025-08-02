@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> set_dm_actuator_commands  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="set_dm_actuator_commands"> set the actuator command array of a deformable mirror.   </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[dm_out]=set_dm_actuator_commands(dm_in, act_com)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>dm_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the input ideal deformable mirror.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>act_com  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the actuator command array to be set.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>dm_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output ideal deformable mirror.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    set the deformable mirror actuator position array. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	ap=circle(12);
+	act_dim=16;act_pitch=1;act_vel=1e-4;
+	act=actuator_array(act_dim,act_dim,act_pitch,act_vel);
+	dm=ideal_dm(ap,act);
+	dm=set_dm_timestamp(dm,0);
+
+	sgn=-1;
+	actuator_command_meters=0.5e-6;command=[];
+	for i=1:act_dim
+		sgn=-1*sgn;
+		for j=1:act_dim
+			sgn=-1*sgn;
+			command=[command,sgn*actuator_command_meters];
+		end
+	end  
+	dm_command=pixel_array(act_dim);
+	dm_command=set_pix_arr_data(dm_command,command);
+	dm=set_dm_actuator_commands(dm,dm_command);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ideal_dm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">dm_update</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_dm_timestamp</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_dm_actuator_positions</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

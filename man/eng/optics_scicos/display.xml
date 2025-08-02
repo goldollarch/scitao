@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="display"> A block to display a image.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>display</ModuleName>
+	
+	<ModuleIcon>display.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block outputs the graphic information.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set Scope parameters</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>display type</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>window ID (-1 for automatic)</ItemTitle>
+				<ItemContent>-1</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>Output window position</ItemTitle>
+				<ItemContent>[]</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>Output window sizes</ItemTitle>
+				<ItemContent>[400;400]</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>Accept herited events (0/1)</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>Name of Scope (label and Id)</ItemTitle>
+				<ItemContent></ItemContent>
+			</Item>		
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>display type : </Subject>
+				<Content></Content>
+			</Explain>
+			<Explain>
+				<Subject>window ID (-1 for automatic) : </Subject>
+				<Content>The number of graphic window used for the display. It is often good to use high values to avoid conflict with palettes and Super Block windows.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>Output window position : </Subject>
+				<Content>a 2 vector specifying the coordinates of the upper left corner of the graphic window. Answer [] for default window position.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>Output window sizes : </Subject>
+				<Content>a 2 vector specifying the coordinates of the upper left corner of the graphic window. Answer [400;400] for default window position.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>Accept herited events (0/1) : </Subject>
+				<Content>if 0 display draws a new point only when an event occurs on its event input port. if 1 display draws a new point when an event occurs on its event input port and when it's regular input changes due to an event on an other upstrem block (herited events). </Content>
+			</Explain>			
+			<Explain>
+				<Subject>Name of Scope (label and Id) : </Subject>
+				<Content>Name/label of the block.</Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>direct-feedthrough:</Subject>
+			<Content>yes </Content>
+		</Property>		
+		<Property>
+			<Subject>zero-crossing:</Subject>
+			<Content>no</Content>
+		</Property>		
+		<Property>
+			<Subject>mode:</Subject>
+			<Content>no</Content>
+		</Property>		
+		<Property>
+			<Subject>number/sizes of inputs:</Subject>
+			<Content>1 / -1 </Content>
+		</Property>		
+		<Property>
+			<Subject>number/sizes of outputs:</Subject>
+			<Content>0 / </Content>
+		</Property>		
+		<Property>
+			<Subject>number/sizes of activation inputs:</Subject>
+			<Content>1 / 1 </Content>
+		</Property>		
+		<Property>
+			<Subject>number/sizes of activation outputs:</Subject>
+			<Content>0 / </Content>
+		</Property>		
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>				
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>dis_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/DISPLAY.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/display.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">file_fits</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">animate</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="./">diagnose</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

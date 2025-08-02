@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="interpolate"> A block to interpolate to new grid dimension and size.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links> 
+	
+	<ModuleName>interpolate</ModuleName>
+	
+	<ModuleIcon>interpolate.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block transfers the field into a grid with new size and dimension.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set interpolation parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>new grid dimension</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>new grid size</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>	
+			<Item>
+				<ItemTitle>magnification</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>						
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>new grid dimension : </Subject>
+				<Content>set the dimension.</Content>
+			</Explain>
+			<Explain>
+				<Subject>new grid size : </Subject>
+				<Content>set the size.</Content>
+			</Explain>			
+			<Explain>
+				<Subject>magnification : </Subject>
+				<Content>set the magnification factor.</Content>
+			</Explain>			
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>resize_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/INTERPOLATE.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/interpolate.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">lp_interp</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">interpol</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

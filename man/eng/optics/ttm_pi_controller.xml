@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> ttm_pi_controller  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="ttm_pi_controller"> create proportional integral controller for a tip tilt mirror . </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[ttm_pi]=ttm_pi_controller(pi)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>pi </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: a pointer to proportional integral controller. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ttm_pi  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output proportional integral controller for the tip tilt mirror. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    create proportional integral controller for a tip tilt mirror .  
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	prop_gain = 1e-4;int_gain = 1e-3;
+	pi=pi_controller(prop_gain,int_gain);
+	ttm_pi=ttm_pi_controller(pi);
+	tt_residuals=znk_mod(1);tt_command=znk_mod(1);
+	[ttm_pi,tt_command]=ttm_pi_update(ttm_pi,tt_residuals,tt_command);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">pi_controller</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">dm_pi_controller</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ttm_pi_update</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">ttm_update</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">controller</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

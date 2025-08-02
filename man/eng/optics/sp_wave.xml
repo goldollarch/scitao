@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> sp_wave  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="sp_wave"> construct spherical wave or field.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[dwf_out]=sp_wave(dwfh,emt)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwfh  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:the diffractive wavefront header object. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>emt  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the spherical wave emitter.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwf_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct spherical wave by the diffractive wavefront header and the spherical wave emitter.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	number=256;
+	wavelength=1e-6;
+	pixscl=0.1;
+
+	dwfh=wavefront_header(wavelength,pixscl,number);
+	dwfh=set_dwfh_timestamp(dwfh,0);
+
+	emt=emitter(1,0,0,1e10);
+	dwf=sp_wave(dwfh,emt);
+	dwf_fits(dwf,"spw");
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">begin</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">emitter</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">pl_wave</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">wavefront_header</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="../optics_scicos/">start</LINK></SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="../optics_scicos/">emitter</LINK></SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

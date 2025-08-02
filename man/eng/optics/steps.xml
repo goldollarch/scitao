@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> steps  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="steps"> propagates the field using finite difference method.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[field_out]=steps(field_in,z[,nstep[,rfname[,afname[,ofname[,n_st]]]]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field. it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>z  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the step size in meters. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>nstep  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the number of steps.it must be integer,
+          so the total propagating distance is nstep*z.
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>rfname  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: 
+          refractive coefficient filename (string), it must be in gnuplot format.
+          if it is "void" then this option is skipped
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>afname  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:
+          absorption coefficient filename( string) 
+          if it is "void" then this option is skipped
+          </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ofname  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output filename where field cross-sections are saved (string)</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>n_st  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the step number. after each n_st steps the ofname will be written.  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>field_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    It can be shown that the propagation of the field U in a medium with 
+    complex refractive coefficient A, is described by the differential equation:
+  </P> 
+  <IMG src="steps_1.gif"/>
+  <P>
+    To solve this equation, we re-write it as a system of finite difference 
+    equations:
+  </P>
+  <IMG src="steps_2.gif"/>
+  <P>
+    Collecting terms we obtain the standard three-diagonal system of 
+    linear equations, solution of which describes the complex amplitude of the light
+    field in the layer z+dz as a function of the field defined in the layer Z:
+  </P>
+  <IMG src="steps_3.gif"/> 
+  <P>where:(we put dx=dy=d)</P> 
+  <IMG src="steps_4.gif"/> 
+  <P>
+	The above three-diagonal system of linear equations is solved by standard elimination 
+	(double sweep) method.This scheme is absolutely stable (this variant is explicit with 
+	respect to the index i and implicit with respect to the index j). One step of  
+	propagation is divided into two sub-steps: the first sub-step applies the described  
+	procedure to all rows of the matrix, the second sub-step changes the direction of 
+	elimination and the procedure is applied to all columns of the matrix.
+  </P>
+  <P>
+	The main advantage of this approach is the possibility to take into account 
+	uniformly diffraction, absorption (amplification) and refraction. For example, 
+	the model of a waveguide with complex three-dimensional distribution of 
+	refraction index and absorption coefficient (both are defined as real and 
+	imaginary components of the can be built easily.
+  </P>
+  <P>
+	It works also much faster than all described previously algorithms on one step 
+	of propagation, though to obtain a good result at a considerable distance, 
+	many steps should be done. As the scheme is absolutely stable (at least for 
+	free-space propagation), there is no stability limitation on the step size 
+	in the direction Z. Large steps cause high-frequency errors, therefore the 
+	number of steps should be determined by trial (increase the number of steps 
+	in a probe model till the result stabilizes), especially for strong variations 
+	of refraction and absorption inside the propagation path.
+  </P>
+  <P>
+	Zero amplitude boundary conditions are commonly used for the described system. 
+	This, again, creates the problem of the wave reflection at the grid boundary. 
+	The influence of these reflections in many cases can be reduced by introducing 
+	an additional absorbing layer in the proximity of the boundary, with the 
+	absorption smoothly (to reduce the reflection at the absorption gradient) 
+	increasing towards the boundary.
+  </P>
+  <P>
+	the refraction term is not included into the 
+	propagation formulas, instead the phase of the field is modified at each step 
+	according to the distribution of the refractive coefficient. 
+	This ''zero-order'' approximation happened to be much more stable numerically 
+	than the direct inclusion of refraction terms into propagation formulas. 
+	It does not take into account the change of the wavelength in the medium, 
+	it does not model backscattering and reflections back on interfaces between 
+	different media. Perhaps there are other details to be mentioned.
+  </P>
+  <P>
+	The described algorithm is implemented in a filter steps. besides the input field,
+	<VERB>steps</VERB> accepts other 6 arguments, first - the step size, second- the number of steps, 
+	third and fourth - files containing absorption and refraction coefficients 
+	to be imported and the last two arguments are the filename where field 
+	cross-sections are saved after each N steps, where N is the last argument. 
+	All filenames are optional
+  </P>
+  <P>
+	The format of imported datafiles is the same as exported for using in gnuplot. 
+	The format of the datafile into which cross sections of the field are saved at 
+	every N-th step is similar to the file generated by <VERB>cros_out</VERB>. 
+	It has one more column(so total 6 column), correspondent to Z coordinate. Cross sections 
+	correspondent to different values of Z are divided by an empty line.
+  </P>
+  <P>
+	<VERB>steps</VERB> has built-in absorption layer along the grid boundaries 
+	(to prevent reflections), occupying 10% of grid from each side.
+	<VERB>steps</VERB> can import absorption/refraction coefficients defined in the format 
+	similar to exported by <VERB>file_int</VERB>.<VERB>steps</VERB> is the only filter in LightPipes 
+	allowing for modeling of (three-dimensional) waveguide devices.
+  </P>
+  <P>
+	Like forvard, <VERB>steps</VERB> can inversely propagate the field, for example the sequence 
+	f1=steps(f0,0.1,1);f2=steps(f1,-0.1,1)..doesn't change anything in the field 
+	distribution. Author has tested this reversibility also for propagation in 
+	absorptive/refractive media, examples will follow.
+  </P>
+  <P>
+	<VERB>steps</VERB> implements scalar approximation, it is not applicable for 
+	modeling of waveguide devices in the vector approximation, where two components 
+	of the field should be taken into account.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	f1=begin(0.004,0.63e-6);
+	f2=circ_ap(f1,0.0015);
+	
+	f3=steps(f2,0.1,1);
+	f4=steps(f3,-0.1,1);
+	
+	f3=lens(f2,0.5);
+	f4=steps(f3,0.01,75,"void","void","steps_out");
+	field_plot(f4);
+	
+	temp = fscanfMat('steps_out');
+	x=zeros(1,256);int_x=zeros(1,256);
+	x(:)=temp(:,1);int_x(:)=temp(:,2);
+	plot2d(x,int_x);	
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">forvard</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">forward</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">steps</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lens_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">geom_propagation</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">near_angular</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">near_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">far_fresnel</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">fraunhoffer_grt</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">fresnel_grt</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="../optics_scicos/">propagate</LINK></SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

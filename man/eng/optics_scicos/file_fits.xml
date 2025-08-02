@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+
+<MAN>
+	<SHORT_DESCRIPTION name="file_fits"> A block to write data to FITS files.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>file_fits</ModuleName>
+	
+	<ModuleIcon>fits.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block write data to FITS file.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set FITS block parameters</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>fits file type (0-10)</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>Output filename</ItemTitle>
+				<ItemContent>outfile</ItemContent>
+			</Item>			
+			<Item>
+				<ItemTitle>Accept herited events 0/1</ItemTitle>
+				<ItemContent>0</ItemContent>
+			</Item>			
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject> fits file type (0-10): </Subject>
+				<Content>if 0 it writes the field data to fits files;
+				if 1 it writes the Shach-Hartmann centroids to fits files;
+				if 2 it writes the Zernike polynomial to fits files;
+				if 3 it writes the Pixel Array data to fits files;
+				</Content>
+			</Explain>
+			<Explain>
+				<Subject>Output file name : </Subject>
+				<Content>the output filename.</Content>
+			</Explain>
+			<Explain>
+				<Subject>Accept herited events 0/1 : </Subject>
+				<Content>if 0 it writes a new point only when an event occurs on its 
+				event input port. if 1 it writes a new point when an event occurs on 
+				its event input port and when it's regular input changes due to an 
+				event on an other upstream block (herited events).
+				</Content>
+			</Explain>						
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active.</Subject>
+			<Content>no</Content>
+		</Property>
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>fits_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>macros/FILE_FITS.sci</InterfacingFunction>
+	
+	<ComputationalFunction>src/scicos/file_fits.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">dwf_fits</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">shc_fits</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">ref_atm_lay_fits</LINK>
+       </SEE_ALSO_ITEM>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">file_ps</LINK>
+       </SEE_ALSO_ITEM>       
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">file_pgm</LINK>
+       </SEE_ALSO_ITEM>       
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">znk_fits</LINK>
+       </SEE_ALSO_ITEM>       
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, Gan guangyong (IAPCM,Beijing,China)</authors>
+	<FilingDate>2006-08</FilingDate>
+
+</MAN>

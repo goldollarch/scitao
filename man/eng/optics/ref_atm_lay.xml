@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> ref_atm_lay  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="ref_atm_lay"> construct a refractive atmosphere layer.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[ref_lay]=ref_atm_lay(pixscale[,x_axes[,seed[,y_axes[,ps[,subm]]]])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>pixscale  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the pixel scale in meters.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>x_axes  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the grid dimension in X axes. x_axes = 256 if defaulted. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>seed  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the random seed . seed = 0 if defaulted .</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>y_axes  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  he grid dimension in Y axes. default y_axes = x_axes. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ps  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the power spectrum. it is Kolmogrov power spectrum 
+          and r0=0.15m at 0.5e-6 wavelength, if defaults.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>subm  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the subharmonic method used in creating the layer.
+          we use null subharmonic method,if defaulted</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>ref_lay  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output refractive layer. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct a refractive atmosphere layer. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	pl=power_law(0.1,1e-6);
+	vkpl=von_karman_power(0.1,1e-6,1);
+
+	in=null_inner();
+	ein=exponent_inner(0.001);
+
+	ps1=power_spectrum(pl,in);
+	ps2=power_spectrum(vkpl,ein);
+
+	subm=null_subm();
+	lsubm=lane_subm(3);
+
+	lay=ref_atm_lay(1);
+	N=256;a=lay_pixarr(lay);z=pixarr_data(a);
+	grayplot(1:N,1:N,z,strf="030",rect=[1,1,N,N]);
+	ref_atm_lay_fits(lay,"lay");
+	
+	lay0=ref_atm_lay(1,300);
+	ref_atm_lay_fits(lay0,"lay0");
+	
+	lay1=ref_atm_lay(1,200,1);
+	ref_atm_lay_fits(lay1,"lay1");
+
+	lay2=ref_atm_lay(1,200,1,300);
+	ref_atm_lay_fits(lay2,"lay2");
+
+	lay3=ref_atm_lay(1,200,1,300,ps1);
+	ref_atm_lay_fits(lay3,"lay3");
+
+	lay4=ref_atm_lay(1,300,1,300,ps2,lsubm);
+	ref_atm_lay_fits(lay4,"lay4");
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">power_spectrum</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">power_law</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">von_karman_power</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">greenwood_power</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">null_inner</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">exponent_inner</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">frehlich_inner</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">null_subm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">quad_pix_subm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lane_subm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">johansson_gavel_subm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">general_subm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_lay_frame</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_lay_wind</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">lay_pixarr</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_lay_fits</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_lay_transform</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

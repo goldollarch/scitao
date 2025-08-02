@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> huf_val_mod  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="huf_val_mod"> construct Hufnagel-Valley refractive atmospheric model. </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[ram]=huf_val_mod(nlayers,layer_heights, pseudowind[,tf])  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>nlayers </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the number of the layers.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>layer_heights  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the layer heights array (its dimension is nlayers). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pseudowind  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the pseudowind of the model. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>tf  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the 3D frame.it is the global frame if defaulted </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>ram  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:the output refractive atmospheric model. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct Hufnagel Valley refractive atmospheric model. this model implements
+    a multilayer approximation to the analytic atmospheric model proposed by
+    Hufnagel and Valley. Paraphrasing Sasiela p. 60, the analytic model is: 
+    Cn^{2}(h)= .00594 (W/27)^{2} (1e-5*h)^{10}exp(-h/1000) + 2.7e-16 exp(-h/1500) +
+    A exp(-h/100). where W is the pseudowind and A is a parameter that is usually 
+    set equal to 1.7e-14. The HV-21 model has this value for A, and W is equal to 21. 
+    This model is sometimes referred to as the HV 5/7 model. 
+    (Note - h is apparently in meters)
+  </P>
+  <P>
+    Sasiela tabulates the turbulence moments for 4 different values of the pseudowind W. 
+    They are reproduced in the table below.
+  </P>
+  <IMG src="huf_val.gif"/>
+  <P>
+    To generate a multilayer approximation to this model, the user must supply 
+    a vector of layer heights to this function. The convention for assigning 
+    turbulence weights to the layers is as follows. The C_{n}^{2} profile is 
+    integrated from the ground to the midpoint between the first and second layer, 
+    and this weight is assigned to the first layer. The profile is integrated from 
+    this point to the midpoint between the second and third layers, and this weight 
+    is assigned to the second layer. For the highest layer, the profile is integrated 
+    from the midpoint between the second highest layer and the highest layer to infinity.
+    Note that this procedure does not necessarily preserve theta_0 in the table above, 
+    but does preserve r_0. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	high=[];
+	for i=1:5
+		high=[high,100*(i+1)];
+	end
+	ram=huf_val_mod(5,high,10);
+	num=atm_mod_lay_number(ram);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">power_spectrum</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_lay</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ell_cer_pac_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ell_mau_kea_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">pal_dimm_mass_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_model</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">slcsat_day_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">slcsat_night_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">tmt_srd_v13_cn2_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">gemini_glao_study_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">get_atm_mod_dwfh</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">get_atm_mod_layers</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_layers_fits</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lay_number</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lay_heights</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">atm_mod_lays_transform</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">atmosphere</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

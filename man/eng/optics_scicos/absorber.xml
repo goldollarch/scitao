@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="../../scicos_rev.xsl"?>
+<MAN>
+	<SHORT_DESCRIPTION name="absorber"> A block to represent an absorber.
+ 	</SHORT_DESCRIPTION>
+	
+	<links>
+		<link1>Library</link1>
+		<link2>Description</link2>
+		<link3>Dialog Box</link3>
+		<link4>Default Properties</link4>
+		<link5>Example Diagrams</link5>
+		<link6>Interfacing Function</link6>
+		<link7>Computational Function</link7>
+		<link8>See Also</link8>
+	</links>
+	
+	<ModuleName>absorber</ModuleName>
+	
+	<ModuleIcon>absorber.gif</ModuleIcon>
+	
+	<Library>Optics</Library>
+	
+	<Description>This block filters the field through intensity attenuator.</Description>
+	
+	<DialogBoxes>
+		<Items>
+			<Item>
+				<ItemTitle>Set the intensity attenuator parameter</ItemTitle>
+				<ItemContent>(default value)</ItemContent>
+			</Item>
+			<Item>
+				<ItemTitle>the coefficient of attenuation or amplification</ItemTitle>
+				<ItemContent>1</ItemContent>
+			</Item>
+		</Items>
+		<ItemExplain>
+			<Explain>
+				<Subject>the coefficient of attenuation or amplification : </Subject>
+				<Content>input the coefficient.</Content>
+			</Explain>
+		</ItemExplain>
+	</DialogBoxes>
+	
+	<DefaultProperties>
+		<Property>
+			<Subject>always active:</Subject>
+			<Content>no</Content>
+		</Property>
+		<Property>
+			<Subject>continuous-time state:</Subject>
+			<Content>no</Content>
+		</Property>	
+		<Property>
+			<Subject>discrete-time state:</Subject>
+			<Content>yes </Content>
+		</Property>		
+	</DefaultProperties>
+	
+	<ExampleDiagrams> 
+		<ExampleIcon>absorb_em.gif</ExampleIcon>
+	</ExampleDiagrams>
+	
+	<InterfacingFunction>scitao/macros/ABSORBER.sci</InterfacingFunction>
+	
+	<ComputationalFunction>scitao/src/scicos/absorber.c</ComputationalFunction>
+	
+	<SeeAlso>
+       <SEE_ALSO_ITEM>
+         <LINK PATH="../optics/">absorber</LINK>
+       </SEE_ALSO_ITEM>
+	</SeeAlso>
+	
+	<authors>Chen jingyuan, IAPCM, China. </authors>
+	<FilingDate>2006-05-08</FilingDate>
+
+</MAN>

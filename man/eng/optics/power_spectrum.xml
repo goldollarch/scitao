@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> power_spectrum  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="power_spectrum"> construct a turbulent power spectrum.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[ps]=power_spectrum(power_law,inner_scale)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>power_law  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the power law . </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>inner_scale  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the inner scale . </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>ps  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output turbulent power spectrum; </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    construct a turbulent power spectrum.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	pl=von_karman_power(0.1,1e-6,1);
+	in=frehlich_inner(0.001);
+	ps=power_spectrum(pl,in);
+ ]]></EXAMPLE>
+  <AUTHOR> Chen jingyuan, IAPCM, China. </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">power_law</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">greenwood_power</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">von_karman_power</LINK> </SEE_ALSO_ITEM>  
+    <SEE_ALSO_ITEM> <LINK PATH="./">null_inner</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">exponent_inner</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">frehlich_inner</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ref_atm_lay</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

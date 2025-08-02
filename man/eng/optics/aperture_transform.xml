@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="E:\scitao-0.2\scitao-0.2\man\html-rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> aperture_transform  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="aperture_transform"> transforms a wavefront by an aperture.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[dwf_out]=aperture_transform(dwf_in,aperture)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwf_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:input field.it must be diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>aperture  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the aperture object.it must be aperture </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>dwf_out  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output field or diffractive wavefront. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+	transforms a wavefront by a type of aperture. 
+	now six types of aperture	has been designed, they are:  
+	circular (<VERB>circle</VERB>), 
+	annular (<VERB>annul_ap</VERB>),
+	rectangular (<VERB>rectang</VERB>),
+	hexagonal (<VERB>hex_ap</VERB>),
+	spidered annular (<VERB>spid_annul_ap</VERB>), 
+	and tiled hexagonal (<VERB>til_hex_ap</VERB>) aperture.
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	dwf=begin(0.01,1e-6,128);
+	ap=circle(0.005);
+	dwf=aperture_transform(dwf,ap);
+	
+	dwf=forvard(dwf,1);
+	field_plot(dwf);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM><LINK PATH="./">circle</LINK></SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">circ_ap</LINK></SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">circ_screen</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">rectang</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM><LINK PATH="./">rect_ap</LINK></SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM><LINK PATH="./">rect_screen</LINK></SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM><LINK PATH="./">hex_ap</LINK></SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM><LINK PATH="./">annul_ap</LINK></SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="./">spid_annul_ap</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">til_hex_ap</LINK> </SEE_ALSO_ITEM>    
+    <SEE_ALSO_ITEM> <LINK PATH="../optics_scicos/">aperture</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

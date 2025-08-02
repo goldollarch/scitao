@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="scilab_rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> get_znk_sin_coef  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="get_znk_sin_coef"> get the sine coefficient of a zernike polynomial.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[coeff]=get_znk_sin_coef(znk_in, order, level )  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>znk_in  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the input Zernike polynomial.  </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>order  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the order to be set. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>level  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the level to be set.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>coeff  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the output coefficient . </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+    get the sine coefficient of a zernike polynomial. 
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	znk=znk_mod(1);
+	coef=get_znk_sin_coef(znk,1,1);
+	znk_fits(znk,"znk");
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">znk_mod</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">get_znk_cos_coef</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_znk_sin_coef</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">set_znk_cos_coef</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">znk_fits</LINK> </SEE_ALSO_ITEM>
+  </SEE_ALSO>
+</MAN>

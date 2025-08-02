@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!--DOCTYPE MAN SYSTEM "../../manrev.dtd"-->
+<?xml-stylesheet type="text/xsl" href="E:\scitao-0.2\scitao-0.2\man\html-rev.xsl"?>
+
+<MAN>
+  <LANGUAGE>eng</LANGUAGE>
+  <TITLE> actuator_array  </TITLE>
+  <TYPE>Scilab Function  </TYPE>
+  <DATE> May, 2006 </DATE>
+  <SHORT_DESCRIPTION name="actuator_array"> construct actuator array for a deformable mirror.  </SHORT_DESCRIPTION>
+  <CALLING_SEQUENCE>
+  <CALLING_SEQUENCE_ITEM>[act_arr]=actuator_array( x_dim, y_dim, pitch, velocity)  </CALLING_SEQUENCE_ITEM>
+  </CALLING_SEQUENCE>
+  <PARAM>
+ <PARAM_INDENT>
+  <PARAM_ITEM>
+  <PARAM_NAME>x_dim  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the dimensions of the actuator array in X direction (integer). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>y_dim </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>: the dimensions of the actuator array in Y direction (integer). </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>pitch  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the actuator's pitch.</SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+  <PARAM_ITEM>
+  <PARAM_NAME>velocity  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the actuator's velocity. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>  
+  <PARAM_ITEM>
+  <PARAM_NAME>act_arr  </PARAM_NAME>
+  <PARAM_DESCRIPTION>
+          <SP>:  the output actuator array. </SP>
+  </PARAM_DESCRIPTION> 
+  </PARAM_ITEM>
+ </PARAM_INDENT>
+  </PARAM>
+  <DESCRIPTION>
+  <P>
+     construct actuator array for a deformable mirror
+  </P>
+  </DESCRIPTION>
+  <EXAMPLE><![CDATA[
+	ap=circle(5);
+	act_dim=8;act_pitch=1;act_vel=1e-4;
+	act=actuator_array(act_dim,act_dim,act_pitch,act_vel);
+	dm=ideal_dm(ap,act);
+ ]]></EXAMPLE>
+  <AUTHOR> 
+    <AUTHORS_ITEM>  Chen jingyuan,  </AUTHORS_ITEM>
+    <AUTHORS_ITEM>  Gan guangyong (IAPCM, Beijing,China.)  </AUTHORS_ITEM>
+  </AUTHOR>
+  <SEE_ALSO>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ideal_dm</LINK> </SEE_ALSO_ITEM>
+    <SEE_ALSO_ITEM> <LINK PATH="./">ideal_dm_transform</LINK> </SEE_ALSO_ITEM>    
+  </SEE_ALSO>
+  
+</MAN>

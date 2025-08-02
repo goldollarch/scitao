@@ -1,0 +1,47 @@
+mode(0)
+//
+// -------------------------------------------------------------------------
+// scitao - Scilab/Scicos Adaptive Optics tooolbox
+//
+// Copyright (C) 2006  IAPCM , Beijing, China.  Written by
+// Chen jingyuan.  For comments or questions about this software,
+// please contact the author at jingyuan_chen@yahoo.com.cn.
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 2 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software Foundation, 
+// Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+// -------------------------------------------------------------------------
+//
+
+path=get_file_path('scripts.dem')
+
+demolist=['aperture,screen and diffraction';
+       'Young interferometer (two holes)';
+       'zernike mode filter (n<=6)';
+       'define intensity or phase filter';
+       'shearing interferometer';
+       'Twyman-Green interferometer';
+       'unstable laser resonator';
+       'optical information processing ';
+       'scintillation simulation';
+       'simple SCAO simulation'];
+       
+deff('[]=demoexc(fil)','exec(path+fil);')
+while %t then
+	num=tk_choose(demolist(:,1),'Choose a demo');
+	if num==0 then
+		break;
+	else
+		demoexc('scrpt_'+string(num)+'.sce');
+	end
+end
